@@ -85,13 +85,25 @@ button:disabled{cursor:default;opacity:.45}
 .tr{height:2.8vh;border-radius:2vh;background:rgba(127,127,127,.15);border:.25vh solid var(--ln);overflow:hidden}.tr i{display:block;height:100%;background:var(--ink)}
 .br:first-child .tr i{background:var(--o)}
 .md{position:fixed;inset:0;background:rgba(0,0,0,.45);display:grid;place-items:center;z-index:9}.md .card{text-align:center;padding:4vh 4vw;max-width:70vw}
-/* Цифрова панель для пароля класу */
-.kp .card{padding:3vh 3vw}
-.dots{display:flex;gap:1.6vh;justify-content:center;margin:2.4vh 0 1vh}.dots i{width:3.4vh;height:3.4vh;border-radius:50%;border:.35vh solid #8f8cd6;display:block}.dots i.f{background:var(--o);border-color:var(--o)}
-.perr{min-height:3.2vh;font-size:2.4vh;color:#b42318}
-.keys{display:grid;grid-template-columns:repeat(3,12vh);gap:1.6vh;justify-content:center;margin-top:1vh}
-.key{height:10.5vh;font-size:5vh;font-weight:700;border-radius:2.4vh;background:#fff;color:#2b2840;box-shadow:0 .6vh 0 #cfcdee;border:.3vh solid #cfcdee}
-.key:active{transform:translateY(.5vh);box-shadow:0 .1vh 0 #cfcdee}.key.k2{font-size:2.1vh;background:#f7e6e1}.key.k3{font-size:4vh;background:#f7e6e1}
+/* Цифрова панель для пароля класу — навмисно маленька, щоб ніхто не піддивився */
+.kp{background:rgba(0,0,0,.25)}.kp .card{padding:1.4vh 1.2vw;border-radius:2vh}
+.kt{margin:0;font-size:2.2vh;font-weight:700}.kt span{font-size:2.6vh;padding:0 .3vw}
+.dots{display:flex;gap:.8vh;justify-content:center;margin:1.2vh 0 .4vh}.dots i{width:1.6vh;height:1.6vh;border-radius:50%;border:.25vh solid #8f8cd6;display:block}.dots i.f{background:var(--o);border-color:var(--o)}
+.perr{min-height:2vh;font-size:1.6vh;color:#b42318}
+.keys{display:grid;grid-template-columns:repeat(3,6.4vh);gap:.8vh;justify-content:center;margin-top:.6vh}
+.key{height:6vh;font-size:2.8vh;font-weight:700;border-radius:1.4vh;background:#fff;color:#2b2840;box-shadow:0 .4vh 0 #cfcdee;border:.25vh solid #cfcdee}
+.key:active{transform:translateY(.3vh);box-shadow:0 .1vh 0 #cfcdee}.key.k2{font-size:2.4vh;background:#f7e6e1}
+/* «Кнопки нижче»: усе, що натискають, — у нижній частині екрана */
+.gorow{position:sticky;bottom:0;display:flex;gap:.8vw;align-items:stretch;margin-top:1vh}.gorow .go{flex:1;margin-top:0}
+.lowb{font-size:2.3vh;font-weight:700;padding:.9vh 1.2vw;border-radius:2vh;background:#fff1a8;color:#2b2840;white-space:nowrap;box-shadow:var(--ss)}
+.low .home{align-items:end}.low .setup{max-height:64vh}.low .hero{justify-content:flex-start}
+.low .stage .qc{order:1}.low .stage .fb{order:2;margin-top:auto}.low .stage .opts,.low .stage .bz,.low .stage .pn{order:3;flex:none;height:46vh}.low .stage .top{order:4}
+.low .stage[style]{justify-content:flex-end!important}.low .md{place-items:end center;padding-bottom:3vh}
+/* Режим учителя */
+.admbar{position:fixed;top:0;left:50%;transform:translateX(-50%);background:#2b2840;color:#fff;font-size:2vh;padding:.6vh 1vw;border-radius:0 0 1.4vh 1.4vh;display:flex;gap:.8vw;align-items:center;z-index:5}.admbar .ghost{font-size:1.8vh;padding:.4vh .8vw;color:#2b2840}
+.edf{text-align:left!important;width:min(80vw,120vh);max-width:none!important;display:flex;flex-direction:column;gap:1vh}
+.edf label{display:flex;flex-direction:column;gap:.4vh;font-size:2vh;color:var(--mut)}
+.edf input,.edf textarea{font:inherit;font-size:2.4vh;padding:.8vh 1vw;border:.25vh solid #cfcdee;border-radius:1.2vh;color:#111;-webkit-user-select:text;user-select:text}
 .shake{animation:sk .35s}
 /* ---- Тема «Бульбашки школи» (v1) */
 .v1{--pa:#ecebfb;--dot:transparent;--ln:#d9d7f3;--bw:.3vh;--sh:0 1vh 3vh rgba(60,50,150,.12);--ss:0 .5vh 1.4vh rgba(60,50,150,.1);--sel:#1c1c3a;--lg:#f15e38;--lgt:#fff;--go:#f15e38;--got:#fff}
@@ -999,9 +1011,9 @@ const cyrb=(s,seed=0)=>{let h1=0xdeadbeef^seed,h2=0x41c6ce57^seed;for(let i=0,ch
 const BN={1:'1–4 класи',2:'5–8 класи',3:'9–11 класи'},bd=g=>g<5?1:g<9?2:3;
 // Змагання триває до четверга, 5 листопада 2026 року, 19:00
 const END=new Date(2026,10,5,19,0,0);
-const S={mode:'1',band:1,cls:'',gr:1,game:'',cs:[]};
+const S={mode:'1',band:1,cls:'',gr:1,game:'',cs:[],low:false};
 const app=document.getElementById('app'),$=id=>document.getElementById(id);
-let TQ,Q,K,i,sc,nr,lock,cur,opts,N,NM,SC,R,LK,A,PK,qt,B,done,fbT,CM,PZ=0,RUN=0,last=Date.now();
+let TQ,Q,K,i,sc,nr,lock,cur,opts,N,NM,SC,R,LK,A,PK,qt,B,done,fbT,CM,PZ=0,RUN=0,ADM=0,last=Date.now();
 const sh=a=>{a=a.slice();for(let k=a.length-1;k>0;k--){const j=Math.random()*(k+1)|0;[a[k],a[j]]=[a[j],a[k]]}return a};
 const un=(a,c,n)=>{const r=[];for(const x of sh(a))if(x!=c&&!r.includes(x)){r.push(x);if(r.length==n)break}return r};
 const O=(c,w)=>[[c,1],...w.map(x=>[x,0])],VW='аеєиіїоуюя',AB='АБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ',FL='АОУІМНТСЛКВДПР',up=s=>s[0].toUpperCase()+s.slice(1);
@@ -1044,7 +1056,7 @@ const ptsOf=k=>js(PK_)[k]||{p:0,t:0};
 const gpts=(k,g)=>Object.values(done_(k,g)).reduce((a,b)=>a+b,0);
 const closed=()=>Date.now()>=END;
 // Зараховує відповідь класу k на завдання j гри g (v — бали). Кожне завдання — лише раз.
-function award(k,g,j,v){if(closed())return;const s=js(SK),o=s[k]=s[k]||{},a=o[g]=o[g]||{};if(j in a)return;a[j]=v;sj(SK,s);if(v){const p=js(PK_),q=p[k]=p[k]||{p:0,t:0};q.p+=v;q.t=Date.now();sj(PK_,p)}}
+function award(k,g,j,v){if(closed()||ADM)return;const s=js(SK),o=s[k]=s[k]||{},a=o[g]=o[g]||{};if(j in a)return;a[j]=v;sj(SK,s);if(v){const p=js(PK_),q=p[k]=p[k]||{p:0,t:0};q.p+=v;q.t=Date.now();sj(PK_,p)}}
 // Нові для всіх указаних класів завдання гри
 const fresh=(ks,g)=>sh(P[g].it.map((_,j)=>j).filter(j=>ks.every(k=>!(j in done_(k,g)))));
 // Рейтинг: більше балів — вище; за рівності вище той, хто набрав ці бали раніше
@@ -1057,32 +1069,38 @@ const pills=(l,key,items)=>`<div class=lab>${l}</div><div class=pills>`+items.ma
 // Ігри, доступні в цьому режимі (для «Клас на клас» — лише спільні)
 function games(){if(S.mode=='c'){if(S.cs.length<2)return[];return GR[CL[S.cs[0]][0]].filter(g=>S.cs.every(k=>GR[CL[k][0]].includes(g)))}const x=S.mode=='1'?(S.cls===''?0:CL[S.cls][0]):S.gr;return x?GR[x]:[]}
 const keys=()=>S.mode=='1'?[+S.cls]:S.mode=='c'?S.cs:[];
-function need(){const m=S.mode;if((m=='1'||m=='c')&&closed())return'Змагання завершено';if(m=='1'&&S.cls==='')return'Спочатку обери свій клас';if(m=='c'&&S.cs.length<2)return'Оберіть 2 або 3 класи';if(!S.game)return m=='1'?'Обери гру':'Оберіть гру';if((m=='1'||m=='c')&&!fresh(keys(),S.game).length)return m=='1'?'Цю гру ви вже пройшли':'Спільних нових завдань немає';return''}
+function need(){const m=S.mode;if((m=='1'||m=='c')&&closed())return'Змагання завершено';if(m=='1'&&S.cls==='')return'Спочатку обери свій клас';if(m=='c'&&S.cs.length<2)return'Оберіть 2 або 3 класи';if(!S.game)return m=='1'?'Обери гру':'Оберіть гру';if(!ADM&&(m=='1'||m=='c')&&!fresh(keys(),S.game).length)return m=='1'?'Цю гру ви вже пройшли':'Спільних нових завдань немає';return''}
 function tg(k){const a=S.cs,j=a.indexOf(k);if(j>=0)a.splice(j,1);else if(a.length<3)a.push(k);home()}
-function stop(){RUN++;clearInterval(TQ);PZ=0;['md','kp'].forEach(id=>{const m=$(id);if(m)m.remove()})}
-const RULES=`<b>Правила змагання</b><ul>
-<li>У кожного класу 4 ігри по 25 завдань — однаково для всіх класів одного року.</li>
-<li>Правильна відповідь — <b style="display:inline;font-size:inherit">10 балів</b>. Максимум для кожного класу — <b style="display:inline;font-size:inherit">1000 балів</b>.</li>
-<li>Кожне завдання клас бачить лише раз: після відповіді воно зникає.</li>
-<li>Щоб грати за клас, введіть пароль класу.</li>
-<li>Перемагає клас із найбільшою кількістю балів на 5 листопада, 19:00. За рівності вище той, хто набрав бали раніше.</li></ul>`;
+function stop(){RUN++;clearInterval(TQ);PZ=0;['md','kp','ed'].forEach(id=>{const m=$(id);if(m)m.remove()})}
+const RULES=`<b>Правила</b><ul>
+<li>Правильна відповідь — 10 очок.</li>
+<li>У кожного класу 100 завдань, тож максимум — 1000 очок.</li>
+<li>Кожне завдання трапляється класу лише раз.</li>
+<li>Грати за клас — з паролем класу.</li>
+<li>Перемагає клас, у якого найбільше очок 5 листопада о 19:00.</li></ul>`;
+// ---- «Кнопки нижче»: для молодших — усі кнопки в нижній частині екрана
+const lowB=()=>`<button class=lowb onclick="tl()">${S.low?'☝️ Кнопки вище':'👇 Кнопки нижче'}</button>`;
+function tl(){S.low=!S.low;document.body.classList.toggle('low',S.low);document.querySelectorAll('.lowb').forEach(b=>b.outerHTML=lowB())}
 function home(){stop();app.dataset.s='h';const m=S.mode,gs=games();if(!gs.includes(S.game))S.game='';
 const band=`<div class=lab>Вікова група</div><div class=pills>${[1,2,3].map(b=>`<button class="pill${S.band==b?' on':''}" onclick="S.band=${b};home()">${BN[b]}</button>`).join('')}</div>`;
-const cls=multi=>`<div class=tiles>${CL.map((c,k)=>[c,k]).filter(([c])=>bd(c[0])==S.band).map(([c,k])=>{const on=multi?S.cs.includes(k):S.cls===''+k;return`<button class="tile${on?' on':''}" onclick="${multi?`tg(${k})`:`S.cls='${k}';home()`}">${c[1]}<small>${c[0]} клас · ${ptsOf(k).p} б.</small></button>`}).join('')}</div>`;
-const sub=g=>{const n=P[g].it.length;if(m=='1'){const d=Object.keys(done_(+S.cls,g)).length;return d>=n?`пройдено ✓ · ${gpts(+S.cls,g)} з ${n*PT} б.`:`${d} з ${n} завдань · ${gpts(+S.cls,g)} з ${n*PT} б.`}if(m=='c')return`спільних нових: ${fresh(S.cs,g).length}`;return P[g].s};
-let body=m=='1'?band+'<div class=lab>Твій клас</div>'+cls(0)+(S.cls!==''?`<span class=note>Клас «${CL[S.cls][1]}»: ${ptsOf(+S.cls).p} з ${MAX(CL[S.cls][0])} балів</span>`:''):m=='c'?`<div class=lab>Які класи змагаються? (${S.cs.length} з 3)</div>`+band+cls(1)+`<span class=note>${S.cs.length?'Обрано: '+S.cs.map(k=>CL[k][1]+', '+CL[k][0]+' кл.').join(' · ')+'. ':''}Кожен клас отримує 10 балів за свою правильну відповідь — і вони йдуть у таблицю.</span>`:`<div class=lab>Ваш клас</div><div class=pills>${[...Array(11)].map((_,j)=>`<button class="pill n${S.gr==j+1?' on':''}" onclick="S.gr=${j+1};home()">${j+1}</button>`).join('')}</div><span class=note>Гра для розваги: у таблицю класів не йде.</span>`;
+const cls=multi=>`<div class=tiles>${CL.map((c,k)=>[c,k]).filter(([c])=>bd(c[0])==S.band).map(([c,k])=>{const on=multi?S.cs.includes(k):S.cls===''+k;return`<button class="tile${on?' on':''}" onclick="${multi?`tg(${k})`:`S.cls='${k}';home()`}">${c[1]}<small>${c[0]} клас</small></button>`}).join('')}</div>`;
+const sub=g=>{const n=P[g].it.length;if(m=='1'){const d=Object.keys(done_(+S.cls,g)).length;return d>=n?`пройдено ✓ · ${gpts(+S.cls,g)} з ${n*PT} оч.`:`${d} з ${n} завдань · ${gpts(+S.cls,g)} з ${n*PT} оч.`}if(m=='c')return`спільних нових: ${fresh(S.cs,g).length}`;return P[g].s};
+let body=m=='1'?band+'<div class=lab>Твій клас</div>'+cls(0)+(S.cls!==''?`<span class=note>Клас «${CL[S.cls][1]}»: ${ptsOf(+S.cls).p} з ${MAX(CL[S.cls][0])} очок</span>`:''):m=='c'?`<div class=lab>Які класи змагаються? (${S.cs.length} з 3)</div>`+band+cls(1)+`<span class=note>${S.cs.length?'Обрано: '+S.cs.map(k=>CL[k][1]+', '+CL[k][0]+' кл.').join(' · ')+'. ':''}Кожен клас отримує 10 очок за свою правильну відповідь — і вони йдуть у таблицю.</span>`:`<div class=lab>Ваш клас</div><div class=pills>${[...Array(11)].map((_,j)=>`<button class="pill n${S.gr==j+1?' on':''}" onclick="S.gr=${j+1};home()">${j+1}</button>`).join('')}</div><span class=note>Гра для розваги: у таблицю класів не йде.</span>`;
 body+=gs.length?`<div class=lab>Гра</div><div class="tiles t2">${gs.map(g=>`<button class="tile t${S.game==g?' on':''}" onclick="S.game='${g}';home()"><i>${P[g].i}</i><span>${P[g].n}<small>${sub(g)}</small></span></button>`).join('')}</div>`:m=='c'&&S.cs.length>1?'<p class=sub>У цих класів немає спільних ігор. Оберіть класи одного року або сусідніх років.</p>':'';
 const no=need();
 app.innerHTML=`<div class=home><div class=hero><div class=logo>Мова вільних і небайдужих 🫶</div><div class=duo><div class="card rules">${RULES}</div><div class="card wod" id=wod>${wodH()}</div></div><div class=card><div class=cd id=cdn>${cdt()}</div>${tbl(0)}<button class=ghost onclick="classes()">Уся таблиця</button></div></div><div class="card setup">`+
 pills('Як граємо?','mode',[['🏆 За клас','1'],['Двоє','2'],['Троє','3'],['Четверо','4'],['⚔️ Клас на клас','c']])+body+
-`<button class=go ${no?'disabled':''} onclick="start()">${no||'Грати'}</button></div></div>`}
+`<div class=gorow>${lowB()}<button class=go ${no?'disabled':''} onclick="start()">${no||'Грати'}</button></div></div></div>`+
+(ADM?`<div class=admbar>🛠 Режим учителя: очки не нараховуються <button class=ghost onclick="edl()">Мої правки (${Object.keys(js(EK)).length})</button><button class=ghost onclick="ADM=0;home()">Вийти</button></div>`:'')}
 function classes(){stop();app.dataset.s='h';
-app.innerHTML=`<div class=stage><div class=top><div class="logo s">Таблиця класів</div><button class=ghost onclick="home()">Назад</button></div><div class=card style="flex:1;overflow:auto"><div class=cd id=cdn>${cdt()}</div>${tbl(1)}<small class=note>Максимум для кожного класу — 1000 балів. За рівності балів вище клас, який набрав їх раніше.</small></div><button class=ghost style="opacity:.4;align-self:flex-end" onclick="rst()">Скинути таблицю</button></div>`}
+app.innerHTML=`<div class=stage><div class=top><div class="logo s">Таблиця класів</div><button class=ghost onclick="home()">Назад</button></div><div class=card style="flex:1;overflow:auto"><div class=cd id=cdn>${cdt()}</div>${tbl(1)}<small class=note>Максимум для кожного класу — 1000 очок. Якщо очок порівну, вище клас, який набрав їх раніше.</small></div><button class=ghost style="opacity:.4;align-self:flex-end" onclick="rst()">Скинути таблицю</button></div>`}
 function rst(){if(confirm('Скинути таблицю класів і всі пройдені завдання?')&&confirm('Точно? Це не можна скасувати.')){try{localStorage.removeItem(PK_);localStorage.removeItem(SK)}catch(x){}classes()}}
 // ---- Пароль класу: гарна цифрова панель на екрані
-function pin(k,cb){const n=CL[k][0]<5?4:6;let v='',err='';const m=document.createElement('div');m.id='kp';m.className='md kp';document.body.appendChild(m);
-const r=sh=>{m.innerHTML=`<div class="card${sh?' shake':''}"><p class=big style="font-size:4.2vh">🔒 Пароль класу «${CL[k][1]}»</p><p class=sub>${n==4?'4 цифри':'6 цифр'}</p><div class=dots>${[...Array(n)].map((_,j)=>`<i class="${j<v.length?'f':''}"></i>`).join('')}</div><div class=perr>${err}</div><div class=keys>${[1,2,3,4,5,6,7,8,9].map(d=>`<button class=key data-d=${d}>${d}</button>`).join('')}<button class="key k2" data-d=x>Скасувати</button><button class=key data-d=0>0</button><button class="key k3" data-d=b>⌫</button></div></div>`};
+// Секретний вхід учителя: на 🔒 натиснути 4 рази, пауза щонайменше 1 с, ще 3 рази → вхід без пароля в режимі учителя
+function pin(k,cb){const n=CL[k][0]<5?4:6;let v='',err='',taps=[];const m=document.createElement('div');m.id='kp';m.className='md kp';document.body.appendChild(m);
+const r=sh=>{m.innerHTML=`<div class="card${sh?' shake':''}"><p class=kt><span data-d=l>🔒</span> «${CL[k][1]}»</p><div class=dots>${[...Array(n)].map((_,j)=>`<i class="${j<v.length?'f':''}"></i>`).join('')}</div><div class=perr>${err}</div><div class=keys>${[1,2,3,4,5,6,7,8,9].map(d=>`<button class=key data-d=${d}>${d}</button>`).join('')}<button class="key k2" data-d=x>✕</button><button class=key data-d=0>0</button><button class="key k2" data-d=b>⌫</button></div></div>`};
 m.onclick=e=>{const b=e.target.closest('[data-d]');if(!b)return;const d=b.dataset.d;last=Date.now();
+if(d=='l'){taps=taps.concat(Date.now()).slice(-7);if(taps.length==7){const g=taps.slice(1).map((t,j)=>t-taps[j]);if(g[0]<1000&&g[1]<1000&&g[2]<1000&&g[3]>=1000&&g[4]<1000&&g[5]<1000){ADM=1;m.remove();cb()}}return}
 if(d=='x'){m.remove();return}if(d=='b'){v=v.slice(0,-1);err='';return r()}if(v.length<n)v+=d;
 if(v.length==n){if(cyrb('vilni:'+k+':'+v,7)===CL[k][2]){m.remove();cb()}else{v='';err='Не той пароль. Спробуйте ще раз.';r(1)}}else r()};r()}
 const pins=(l,cb)=>l.length?pin(l[0],()=>pins(l.slice(1),cb)):cb();
@@ -1090,7 +1108,7 @@ function start(){if(need())return;const m=S.mode;if(m=='1')pins([+S.cls],go);els
 function go(){stop();delete app.dataset.s;S.mode=='1'?solo():duel()}
 // ---- Кнопка «Завершити» з підтвердженням
 const qbtn='<button class=ghost onclick="ask()">Завершити</button>';
-function ask(){if($('md'))return;PZ=1;const m=document.createElement('div');m.id='md';m.className='md';m.innerHTML=`<div class=card><p class=big style="font-size:5vh">Точно завершити гру?</p><p class=sub style="margin-top:1.4vh">${S.mode=='1'||S.mode=='c'?'Бали за вже дані відповіді збережуться. Завдання без відповіді лишаться на потім.':'Покажемо, хто скільки набрав.'}</p><div class=pills style="justify-content:center;margin-top:3vh"><button class=go onclick="quit()">Так, завершити</button><button class=ghost onclick="unask()">Ні, граємо далі</button></div></div>`;document.body.appendChild(m)}
+function ask(){if($('md'))return;PZ=1;const m=document.createElement('div');m.id='md';m.className='md';m.innerHTML=`<div class=card><p class=big style="font-size:5vh">Точно завершити гру?</p><p class=sub style="margin-top:1.4vh">${S.mode=='1'||S.mode=='c'?'Очки за вже дані відповіді збережуться. Завдання без відповіді лишаться на потім.':'Покажемо, хто скільки набрав.'}</p><div class=pills style="justify-content:center;margin-top:3vh"><button class=go onclick="quit()">Так, завершити</button><button class=ghost onclick="unask()">Ні, граємо далі</button></div></div>`;document.body.appendChild(m)}
 function unask(){const m=$('md');if(m)m.remove();PZ=0}
 function quit(){unask();S.mode=='1'?endSolo():fin()}
 // ---- Спільне: картка питання, складання слова з літер
@@ -1107,18 +1125,19 @@ const later=(f,ms)=>{const r=RUN;setTimeout(()=>{if(r==RUN)f()},ms)};
 const optsH=(fn,p)=>opts.map((o,k)=>`<button class="opt${cur.big?' e':''}${p===undefined?'':oc(p,k)}" onclick="${fn}(${p===undefined?'':p+','}${k})">${cur.big?'':`<i>${'АБВГ'[k]}</i>`}${o[0]}</button>`).join('');
 const cols=()=>opts.length==3?(cur.big?'1fr 1fr 1fr':'1fr'):'1fr 1fr';
 // ---- Гра за свій клас: до 10 нових завдань
-function solo(){K=+S.cls;Q=fresh([K],S.game).slice(0,10);i=0;sc=0;nr=0;sq()}
+// У режимі учителя: усі 25 завдань гри по порядку, без очок, з кнопками «Виправити» й «Далі»
+function solo(){K=+S.cls;Q=ADM?P[S.game].it.map((_,j)=>j):fresh([K],S.game).slice(0,10);i=0;sc=0;nr=0;sq()}
 function sq(){if(i>=Q.length)return endSolo();lock=0;cur=mk(S.game,P[S.game].it[Q[i]]);opts=cur.o;B=[nb()];
-app.innerHTML=`<div class=stage><div class=top><span class=badge>${i+1} / ${Q.length}</span><div class=bar><i style="width:${i/Q.length*100}%"></i></div><span class=badge>⭐ +${sc}</span>${qbtn}</div><div class="card qc">${qh()}</div>`+
+app.innerHTML=`<div class=stage><div class=top><span class=badge>${ADM?'🛠 №'+(Q[i]+1):(i+1)+' / '+Q.length}</span><div class=bar><i style="width:${i/Q.length*100}%"></i></div>${ADM?'<button class=ghost onclick="ed()">✏️ Виправити</button><button class=ghost onclick="i++;sq()">Далі ⏭</button>':`<span class=badge>⭐ +${sc}</span>`}${lowB()}${qbtn}</div><div class="card qc">${qh()}</div>`+
 (cur.w?`<div class=bz id=bz>${bh(0,'sb')}</div>`:`<div class=opts style="grid-template-columns:${cols()}">${optsH('ans')}</div>`)+`<div id=fb class=fb></div></div>`}
 function ans(k){if(lock||PZ)return;lock=1;const ok=opts[k][1];
 document.querySelectorAll('.opt').forEach((e,j)=>{if(opts[j][1])e.classList.add('ok');else if(j==k)e.classList.add('bad')});
 award(K,S.game,Q[i],ok?PT:0);if(ok){nr++;sc+=PT}
-fbk(ok,ok?' +10':'');later(()=>{i++;sq()},ok?1500:2800)}
-function sb(p,k){if(lock||PZ)return;const r=bt(0,k);$('bz').innerHTML=bh(0,'sb');if(r==2){lock=1;const v=bpts(B[0]);award(K,S.game,Q[i],v);nr++;sc+=v;fbk(1,` +${v}`+(v<PT?' (з підказками)':''));later(()=>{i++;sq()},1600)}}
-function endSolo(){stop();const k=K,o=ptsOf(k),place=rank().findIndex(x=>x[0]==k)+1,left=fresh([k],S.game).length;
+fbk(ok,ok&&!ADM?' +10':'');if(!ADM)later(()=>{i++;sq()},ok?1500:2800)}
+function sb(p,k){if(lock||PZ)return;const r=bt(0,k);$('bz').innerHTML=bh(0,'sb');if(r==2){lock=1;const v=bpts(B[0]);award(K,S.game,Q[i],v);nr++;sc+=v;fbk(1,ADM?'':` +${v}`+(v<PT?' (з підказками)':''));if(!ADM)later(()=>{i++;sq()},1600)}}
+function endSolo(){if(ADM){S.cls='';return home()}stop();const k=K,o=ptsOf(k),place=rank().findIndex(x=>x[0]==k)+1,left=fresh([k],S.game).length;
 const kind=['Дякуємо за гру! 🫶','Мова любить сміливих!','Кожна гра — нові слова у скарбничці!'][Math.random()*3|0];
-S.cls='';app.innerHTML=`<div class=stage style="justify-content:center"><div class="card" style="text-align:center"><p class=big style="font-size:11vh">⭐ +${sc}</p><p class=sub style="color:var(--ink);font-size:3.4vh">${kind} Правильних відповідей: ${nr}</p><p class=sub style="margin:1vh 0">${closed()?'Змагання завершено, бали не записано.':`Клас «${CL[k][1]}»: ${o.p} з ${MAX(CL[k][0])} балів · ${place} місце`}</p><p class=sub style="margin:0 0 3vh">${left?`У цій грі лишилося ще ${left} нових завдань.`:'Цю гру клас пройшов повністю! Спробуйте інші ігри.'}</p><div class=pills style="justify-content:center"><button class=go onclick="classes()">До таблиці</button><button class=ghost onclick="home()">Грати ще</button></div></div></div>`}
+S.cls='';app.innerHTML=`<div class=stage style="justify-content:center"><div class="card" style="text-align:center"><p class=big style="font-size:11vh">⭐ +${sc}</p><p class=sub style="color:var(--ink);font-size:3.4vh">${kind} Правильних відповідей: ${nr}</p><p class=sub style="margin:1vh 0">${closed()?'Змагання завершено, очки не записано.':`Клас «${CL[k][1]}»: ${o.p} з ${MAX(CL[k][0])} очок · ${place} місце`}</p><p class=sub style="margin:0 0 3vh">${left?`У цій грі лишилося ще ${left} нових завдань.`:'Цю гру клас пройшов повністю! Спробуйте інші ігри.'}</p><div class=pills style="justify-content:center"><button class=go onclick="classes()">До таблиці</button><button class=ghost onclick="home()">Грати ще</button></div></div></div>`}
 // ---- Дуелі. Гравці (2–4): хто перший правильно — тому бал, у таблицю не йде, завдання не витрачаються.
 // Клас на клас: кожен клас відповідає сам, 10 балів за правильну відповідь іде в таблицю; завдання зараховуються обом класам.
 const QL=()=>cur.w?45:cur.rd?50:30;
@@ -1129,7 +1148,7 @@ t();const cd=setInterval(()=>{if(r!=RUN)return clearInterval(cd);n--;if(n<0){cle
 function dq(){clearInterval(TQ);if(R>=Q.length)return fin();cur=mk(S.game,P[S.game].it[Q[R]]);opts=cur.o;LK=Array(N).fill(0);A=Array(N).fill(0);PK=Array(N).fill(-1);B=[...Array(N)].map(nb);done=0;fbT='';qt=QL();
 if(CM)TQ=setInterval(()=>{if(PZ||done)return;qt--;const e=$('qt');if(e)e.textContent='⏱ '+qt;if(qt<=0){A.forEach((x,p)=>{if(!x){A[p]=-1;award(S.cs[p],S.game,Q[R],0)}});reveal()}},1000);draw()}
 const COLD=['#ffd9cc','#c8f0e3','#e2d9ff','#fff0a6'];
-function draw(){app.innerHTML=`<div class="stage du"><div class=top><span class=badge>${R+1} / ${Q.length}</span>${CM?`<span class=badge id=qt>⏱ ${qt}</span>`:''}<div class=bar><i style="width:${R/Q.length*100}%"></i></div>${qbtn}</div><div class="card qc" style="min-height:16vh">${qh()}</div><div class=pn style="grid-template-columns:repeat(${N==4?2:N},1fr)">`+
+function draw(){app.innerHTML=`<div class="stage du"><div class=top><span class=badge>${R+1} / ${Q.length}</span>${CM?`<span class=badge id=qt>⏱ ${qt}</span>`:''}<div class=bar><i style="width:${R/Q.length*100}%"></i></div>${lowB()}${qbtn}</div><div class="card qc" style="min-height:16vh">${qh()}</div><div class=pn style="grid-template-columns:repeat(${N==4?2:N},1fr)">`+
 SC.map((s,p)=>`<div class=pl style="background:${COLD[p]};${!CM&&LK[p]?'opacity:.35':''}"><div class=pt><span>${NM[p]}</span><span>${CM&&A[p]==1?'✅ ':''}⭐ ${s}</span></div>${cur.w?`<div class=bz>${bh(p,'dbt')}</div>`:`<div class=opts style="grid-template-columns:${cur.big?'1fr 1fr':'1fr'};gap:1vh">${optsH('da',p)}</div>`}</div>`).join('')+
 `</div><div class="fb show ${fbT?'g':''}" style="${fbT?'':'visibility:hidden'}">${fbT}</div></div>`}
 const oc=(p,k)=>{if(!done&&PK[p]<0)return'';if(opts[k][1]&&(done||PK[p]==k))return' ok';return PK[p]==k?' bad':''};
@@ -1138,14 +1157,31 @@ function reveal(){done=1;clearInterval(TQ);fbT=cur.e;draw();nx()}
 function da(p,k){if(done||PZ)return;
 if(CM){if(A[p])return;PK[p]=k;const ok=opts[k][1];A[p]=ok?1:-1;if(ok)SC[p]+=PT;award(S.cs[p],S.game,Q[R],ok?PT:0);A.every(x=>x)?reveal():draw();return}
 if(LK[p])return;PK[p]=k;
-if(opts[k][1]){SC[p]++;done=1;fbT=`+1 бал: ${NM[p]}! ${cur.e}`;draw();nx()}
+if(opts[k][1]){SC[p]++;done=1;fbT=`+1 очко: ${NM[p]}! ${cur.e}`;draw();nx()}
 else{LK[p]=1;if(LK.every(x=>x)){done=1;fbT='Цього разу ніхто. '+cur.e;draw();nx()}else draw()}}
 // Складання слова в дуелі: хибна літера лише ненадовго «заморожує» панель
 function dbt(p,k){if(done||PZ||(CM&&A[p]))return;const r=bt(p,k);if(r==-1)B[p].fz=Date.now()+700;
-if(r==2){if(CM){const v=bpts(B[p]);A[p]=1;SC[p]+=v;award(S.cs[p],S.game,Q[R],v);A.every(x=>x)?reveal():draw()}else{SC[p]++;done=1;fbT=`+1 бал: ${NM[p]}! ${cur.e}`;draw();nx()}}else if(r)draw()}
+if(r==2){if(CM){const v=bpts(B[p]);A[p]=1;SC[p]+=v;award(S.cs[p],S.game,Q[R],v);A.every(x=>x)?reveal():draw()}else{SC[p]++;done=1;fbT=`+1 очко: ${NM[p]}! ${cur.e}`;draw();nx()}}else if(r)draw()}
 function fin(){const cm=CM;stop();const m=Math.max(...SC),w=SC.map((s,p)=>s==m?p:-1).filter(p=>p>=0);app.dataset.s='h';
-app.innerHTML=`<div class=stage style="justify-content:center"><div class=card style="text-align:center"><p class=big>${w.length>1?'Нічия! '+w.map(p=>NM[p]).join(' і '):'Перемагає '+NM[w[0]]+'! 🎉'}</p><p class=sub style="margin:2vh 0 1vh">${SC.map((s,p)=>`${NM[p]}: +${s}`).join('  ·  ')}</p><p class=sub style="margin:0 0 3vh">${cm?(closed()?'Змагання завершено, бали не записано. ':'Бали кожного класу записано в таблицю. '):''}Дякуємо всім за гру! 🫶</p><div class=pills style="justify-content:center">${cm?'<button class=go onclick="classes()">До таблиці</button>':''}<button class=${cm?'ghost':'go'} onclick="home()">Грати ще</button></div></div></div>`}
-document.addEventListener('pointerdown',()=>last=Date.now());
-setInterval(()=>{const c=$('cdn');if(c)c.textContent=cdt();const w=$('wod');if(w){const h=wodH();if(w.innerHTML!=h)w.innerHTML=h}if(Date.now()-last>45000&&(app.dataset.s!='h'||$('kp'))){S.cls='';S.cs=[];home()}},1000);
+app.innerHTML=`<div class=stage style="justify-content:center"><div class=card style="text-align:center"><p class=big>${w.length>1?'Нічия! '+w.map(p=>NM[p]).join(' і '):'Перемагає '+NM[w[0]]+'! 🎉'}</p><p class=sub style="margin:2vh 0 1vh">${SC.map((s,p)=>`${NM[p]}: +${s}`).join('  ·  ')}</p><p class=sub style="margin:0 0 3vh">${cm?(closed()||ADM?'Очки не записано. ':'Очки кожного класу записано в таблицю. '):''}Дякуємо всім за гру! 🫶</p><div class=pills style="justify-content:center">${cm?'<button class=go onclick="classes()">До таблиці</button>':''}<button class=${cm?'ghost':'go'} onclick="home()">Грати ще</button></div></div></div>`}
+// ===================== РЕЖИМ УЧИТЕЛЯ: ПРАВКИ =====================
+// Правки зберігаються на цьому пристрої (ub5edits) і одразу діють у грі. Список — кнопка «Мої правки»: його можна скопіювати або завантажити файлом.
+const EK='ub5edits';
+const FLD={b:['Емодзі','Слово','Підказка'],first:['Емодзі','Слово','Буква'],syll:['Емодзі','Слово'],odd:['Три картинки (через пробіл)','Зайва картинка','Що їх об’єднує'],alpha:['Тип: a — буква після, w — перше слово','Буква або слова через ;'],voice:['Емодзі','Тварина','Як говорить'],read:['Текст','Питання','Правильна відповідь','Хибні відповіді (через ;)'],anto:['Слово','Протилежне'],two:['Правильно','Неправильно'],say:['Невдало','Краще'],little:['d — лагідне, b — малюк','Слово','Відповідь'],root:['Слово','Родич','Несправжні родичі (через ;)','Пояснення'],parts:['Слово','i — іменник, p — прикметник, d — дієслово'],voc:['Називний','Кличний'],str:['Слово (наголошена буква велика)'],mean:['Вислів','Значення'],dial:['Слово','Значення','Регіон'],slang:['Сленг','Відповідники (через ;)'],fact:['Твердження','0 — факт, 1 — думка','Пояснення'],myth:['Твердження','0 — правда, 1 — міф','Пояснення'],nstr:['Слово (наголошена буква велика)'],par:['Речення з …','Правильне слово','Паронім','Пояснення']};
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+// Застосувати збережені правки до завдань
+(()=>{const e=js(EK);for(const key in e){const x=e[key];if(x.f&&P[x.g]&&P[x.g].it[x.j])P[x.g].it[x.j]=x.f.slice()}})();
+function ed(){const g=S.game,j=Q[i],a=P[g].it[j],L=FLD[P[g].t],old=js(EK)[g+':'+j];const m=document.createElement('div');m.id='ed';m.className='md';
+m.innerHTML=`<div class="card edf"><p class=big style="font-size:3.4vh">✏️ ${P[g].n} · завдання №${j+1}</p>${L.map((l,k)=>`<label>${l}<input data-k=${k} value="${esc(a[k]||'')}"></label>`).join('')}<label>Коментар для Claude (що уточнити, перевірити)<textarea id=enote rows=2>${esc(old&&old.note||'')}</textarea></label><div class=perr id=eerr></div><div class=pills style="justify-content:flex-end"><button class=ghost onclick="$('ed').remove()">Скасувати</button><button class=go onclick="eds()">Зберегти</button></div></div>`;document.body.appendChild(m)}
+function eds(){const g=S.game,j=Q[i],key=g+':'+j,e=js(EK),orig=(e[key]&&e[key].o)||P[g].it[j].slice();
+const f=[...document.querySelectorAll('#ed input')].map(x=>x.value.replace(/\|/g,'/').trim());while(f.length&&f[f.length-1]==='')f.pop();const note=$('enote').value.trim();
+try{for(let t=0;t<5;t++){const r=mk(g,f);if(!r.w&&(r.o.filter(o=>o[1]).length!=1||r.o.length<2))throw 0}}catch(x){$('eerr').textContent='Так гра не зможе показати завдання. Перевірте поля.';return}
+const same=f.join('|')==orig.join('|');if(same&&!note){delete e[key]}else e[key]={g,j,o:orig,f:same?null:f,note,at:new Date().toLocaleString('uk-UA')};sj(EK,e);P[g].it[j]=same?orig.slice():f;$('ed').remove();sq()}
+function edl(){const e=js(EK),l=Object.values(e);const txt=l.map(x=>`[${x.g} №${x.j+1}] ${P[x.g]?P[x.g].n:x.g}\nБуло:  ${x.o.join(' | ')}\n`+(x.f?`Стало: ${x.f.join(' | ')}\n`:'')+(x.note?`Коментар: ${x.note}\n`:'')).join('\n')+(l.length?'\n---JSON---\n'+JSON.stringify(e):'');
+const m=document.createElement('div');m.id='ed';m.className='md';m.innerHTML=`<div class="card edf"><p class=big style="font-size:3.4vh">Мої правки: ${l.length}</p><p class=sub>Надішліть цей текст або файл Claude — і правки буде перенесено в гру для всіх.</p><textarea readonly rows=12 id=etxt>${esc(txt||'Правок поки немає.')}</textarea><div class=pills style="justify-content:flex-end"><button class=ghost onclick="if(confirm('Видалити всі правки з цього пристрою?')){localStorage.removeItem(EK);location.reload()}">Очистити</button><button class=ghost onclick="navigator.clipboard.writeText($('etxt').value).then(()=>this.textContent='Скопійовано ✓')">Скопіювати</button><button class=ghost onclick="edf()">Завантажити файл</button><button class=go onclick="$('ed').remove()">Закрити</button></div></div>`;document.body.appendChild(m)}
+function edf(){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([$('etxt').value],{type:'text/plain;charset=utf-8'}));a.download='правки-мовна-гра.txt';a.click()}
+['pointerdown','keydown'].forEach(t=>document.addEventListener(t,()=>last=Date.now()));
+// Бездіяльність: діти — 45 с, учитель — 3 хв; редагування не перериваємо
+setInterval(()=>{const c=$('cdn');if(c)c.textContent=cdt();const w=$('wod');if(w){const h=wodH();if(w.innerHTML!=h)w.innerHTML=h}if($('ed'))return;if(Date.now()-last>(ADM?180000:45000)&&(app.dataset.s!='h'||$('kp')||ADM||S.low)){ADM=0;S.cls='';S.cs=[];if(S.low)tl();home()}},1000);
 home();
 </script></body></html>
