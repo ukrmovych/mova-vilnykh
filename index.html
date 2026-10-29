@@ -6,49 +6,50 @@
 <style>
 @font-face{font-family:BalsamiqLocal;font-weight:400;src:local("Balsamiq Sans"),url(fonts/BalsamiqSans-Regular.ttf) format("truetype")}
 @font-face{font-family:BalsamiqLocal;font-weight:700;src:local("Balsamiq Sans Bold"),url(fonts/BalsamiqSans-Bold.ttf) format("truetype")}
-/* Кольори школи (vilni.school): помаранчевий #f15e38, лавандовий #ecebfb, персиковий #f7e6e1, жовтий #f6d58e, чорний текст.
-   Теми оформлення — класи body.v1…v5 (див. змінну DV у скрипті або ?v=1…5 в адресі). */
-:root{--o:#f15e38;--od:#c9441d;--ot:#fff1ec;--ink:#111;--mut:#666;--pa:#fffaf6;--cd:#fff;--ln:#111;--bw:.35vh;--sh:.7vh .7vh 0 #111;--ss:.45vh .45vh 0 #111;--sel:#111;--selt:#fff;--lg:#111;--lgt:#fff;--go:#f15e38;--got:#111;--rad:3vh;--dot:rgba(17,17,17,.11)}
+/* Кольори школи (vilni.school): помаранчевий #f15e38, лавандовий #ecebfb, персиковий #f7e6e1, жовтий #f6d58e.
+   Тема «Вирізки» = класи body.v1 (бульбашки) + v8 (скрапбук) + v14 (вирізки). */
+:root{--o:#f15e38;--od:#c9441d;--ot:#fff1ec;--ink:#111;--mut:#666;--pa:#fffaf6;--cd:#fff;--ln:#111;--bw:.35vh;--sh:.7vh .7vh 0 #111;--ss:.45vh .45vh 0 #111;--sel:#111;--selt:#fff;--lg:#111;--lgt:#fff;--go:#f15e38;--got:#111;--rad:3vh;--dot:rgba(17,17,17,.11);--ring:#f15e38}
 *{box-sizing:border-box;touch-action:manipulation;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
 body{margin:0;height:100vh;overflow:hidden;color:var(--ink);font-family:BalsamiqLocal,"Balsamiq Sans","Segoe UI",system-ui,sans-serif;background-color:var(--pa);background-image:radial-gradient(circle,var(--dot) .2vh,transparent .26vh);background-size:3.2vh 3.2vh}
 button{font:inherit;cursor:pointer;color:inherit;border:0;background:none}
+button:disabled{cursor:default;opacity:.45}
 #app{height:100vh;padding:3vh 3vw;position:relative}
-.card{background:var(--cd);border:var(--bw) solid var(--ln);border-radius:var(--rad);padding:2.4vh 2vw;box-shadow:var(--sh)}
-.home{display:grid;grid-template-columns:5fr 7fr;gap:3vw;height:100%}
+.card{background:var(--cd);border:var(--bw) solid var(--ln);border-radius:var(--rad);padding:2.2vh 1.8vw;box-shadow:var(--sh)}
+.home{display:grid;grid-template-columns:5fr 7fr;gap:2.6vw;height:100%}
 @media(max-aspect-ratio:1/1){.home{grid-template-columns:1fr;overflow:auto}}
-.hero{display:flex;flex-direction:column;gap:2.4vh;justify-content:center;min-height:0}
-.logo{align-self:flex-start;position:relative;background:var(--lg);color:var(--lgt);font-size:5.4vh;font-weight:700;line-height:1.12;padding:2vh 2.2vw 2.2vh;border-radius:3.4vh;transform:rotate(-1.2deg);margin-bottom:1.8vh}
-.logo:after{content:"";position:absolute;left:3.4vw;bottom:-2.4vh;width:3.4vh;height:2.6vh;background:var(--lg);clip-path:polygon(0 0,100% 0,12% 100%)}
-.logo.s{font-size:4.4vh;margin-bottom:2.4vh}
-.sub{font-size:2.8vh;color:var(--mut);margin:0}
-.wod{display:flex;flex-direction:column;align-items:flex-start;gap:.4vh;transform:rotate(.6deg)}
-.wod span{background:var(--o);color:#111;font-size:2.2vh;font-weight:700;padding:.4vh 1vw;border-radius:2vh}
-.wod b{font-size:5.6vh}.wod em{font-size:3vh;font-style:normal}.wod small{font-size:2.3vh;color:var(--mut)}
-.cd{font-size:2.6vh;font-weight:700;margin-bottom:1vh}
+.hero{display:flex;flex-direction:column;gap:2vh;justify-content:center;min-height:0}
+.logo{align-self:flex-start;position:relative;background:var(--lg);color:var(--lgt);font-size:3.9vh;font-weight:700;line-height:1.12;padding:1.5vh 1.8vw 1.7vh;border-radius:3.4vh;transform:rotate(-1.2deg);margin-bottom:1vh}
+.logo.s{font-size:4.2vh;margin-bottom:2vh}
+.sub{font-size:2.6vh;color:var(--mut);margin:0}
+.duo{display:grid;grid-template-columns:1.35fr 1fr;gap:1.4vw}
+.rules{font-size:1.8vh;line-height:1.35}.rules b{display:block;font-size:2.5vh;margin-bottom:.6vh}.rules ul{margin:0;padding-left:1.2em}.rules li{margin:.25vh 0}
+.wod{display:flex;flex-direction:column;align-items:flex-start;gap:.4vh}
+.wod span{background:var(--o);color:#111;font-size:2vh;font-weight:700;padding:.4vh 1vw;border-radius:2vh}
+.wod b{font-size:4.6vh}.wod em{font-size:2.5vh;font-style:normal}.wod small{font-size:2vh;color:var(--mut)}
+.cd{font-size:2.5vh;font-weight:700;margin-bottom:.8vh}
 .note{display:block;font-size:2vh;color:var(--mut);margin:.6vh 0 1vh}
 .ghost{font-size:2.6vh;padding:1.1vh 1.6vw;border-radius:2vh;border:var(--bw) solid var(--ln);background:var(--cd);box-shadow:var(--ss)}
 .setup{display:flex;flex-direction:column;gap:.8vh;overflow:auto}
-.lab{font-size:2.3vh;font-weight:700;color:var(--mut);margin-top:1vh}
-.pills{display:flex;gap:.8vw;flex-wrap:wrap}
-.pill{font-size:2.6vh;padding:1vh 1.4vw;border-radius:5vh;border:var(--bw) solid var(--ln);background:var(--cd)}
+.lab{font-size:2.2vh;font-weight:700;color:var(--mut);margin-top:.5vh}
+.pills{display:flex;gap:.6vw;flex-wrap:wrap}
+.pill{font-size:2.4vh;padding:.9vh 1.1vw;border-radius:5vh;border:var(--bw) solid var(--ln);background:var(--cd)}
 .pill.n{min-width:6vh;text-align:center;padding:1vh .8vw}
 .pill.on,.tile.on{background:var(--sel);color:var(--selt)}
-.tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:1.2vh .8vw}
-.tiles.t3{grid-template-columns:repeat(3,1fr)}
+.tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:1vh .8vw}
+.tiles.t2{grid-template-columns:repeat(2,1fr)}
 .tile{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;text-align:left;font-size:2.3vh;font-weight:700;padding:.9vh .8vw;border-radius:2.2vh;background:var(--cd);border:var(--bw) solid var(--ln);box-shadow:var(--ss)}
 .tile small{display:block;font-size:1.9vh;font-weight:400;opacity:.75}
 .tile.t{flex-direction:row;align-items:center;gap:.8vw}.tile.t i{font-style:normal;font-size:3.6vh}
-.tile:nth-child(odd){transform:rotate(-.5deg)}.tile:nth-child(even){transform:rotate(.5deg)}
 .setup .go{position:sticky;bottom:0}
-.go{margin-top:1.4vh;font-size:4vh;font-weight:700;padding:1.6vh 3vw;border-radius:3vh;background:var(--go);color:var(--got);border:var(--bw) solid var(--ln);box-shadow:var(--sh)}
+.go{margin-top:1vh;font-size:3.6vh;font-weight:700;padding:1.3vh 3vw;border-radius:3vh;background:var(--go);color:var(--got);border:var(--bw) solid var(--ln);box-shadow:var(--sh)}
 .go:active{transform:translate(.5vh,.5vh);box-shadow:none}
-.go:disabled{background:#eee;color:#888;border-color:#bbb;box-shadow:none}
+.go:disabled{background:#eee;color:#888;border-color:#bbb;box-shadow:none;opacity:1}
 .stage{display:flex;flex-direction:column;height:100%;gap:2vh}
 .top{display:flex;align-items:center;justify-content:space-between;gap:1.4vw}
-.badge{font-size:3.2vh;font-weight:700;padding:.9vh 1.4vw;border-radius:5vh;background:var(--cd);border:var(--bw) solid var(--ln);white-space:nowrap}
+.badge{font-size:3vh;font-weight:700;padding:.9vh 1.4vw;border-radius:5vh;background:var(--cd);border:var(--bw) solid var(--ln);white-space:nowrap}
 .top .ghost{font-size:2.4vh;padding:.9vh 1.2vw;white-space:nowrap}
 .bar{flex:1;height:2.4vh;border-radius:2vh;background:var(--cd);border:var(--bw) solid var(--ln);overflow:hidden}
-.bar i{display:block;height:100%;background:var(--o);transition:width 1s linear}
+.bar i{display:block;height:100%;background:var(--o);transition:width .4s}
 .qc{text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:22vh}
 .pre{font-size:2.8vh;color:var(--mut)}
 .q{font-size:7vh;font-weight:700;margin-top:1vh;line-height:1.15}.q.sm{font-size:4.4vh}
@@ -57,6 +58,7 @@ button{font:inherit;cursor:pointer;color:inherit;border:0;background:none}
 .clue{font-size:3.4vh;margin-top:.6vh}
 .opts{display:grid;gap:2vh 1.6vw;flex:1}
 .opt{display:flex;align-items:center;gap:1.4vw;text-align:left;font-size:3.6vh;font-weight:700;border-radius:3vh;background:var(--cd);border:var(--bw) solid var(--ln);box-shadow:var(--ss);padding:1.4vh 2vw;transition:.12s}
+.opt.e{font-size:12vh;justify-content:center;padding:.6vh 1vw}.pl .opt.e{font-size:6vh}
 .opt i{font-style:normal;flex:none;width:6vh;height:6vh;border-radius:50%;background:var(--ink);color:var(--cd);display:grid;place-items:center;font-size:3vh}
 .opt:active{transform:scale(.98)}
 .opt.ok{background:#22c55e;color:#fff}.opt.ok i{background:#fff;color:#15803d}
@@ -78,182 +80,204 @@ button{font:inherit;cursor:pointer;color:inherit;border:0;background:none}
 .pl .bz{gap:1.2vh}.pl .slot{width:5vh;height:6vh;font-size:4.2vh;border-bottom-width:.5vh}.pl .lts{gap:1vh .6vw}.pl .lt{width:7vh;height:7vh;font-size:4.2vh;border-radius:1.6vh;background:#fff;color:#111}
 .pt{display:flex;justify-content:space-between;gap:1vw;font-size:3vh;font-weight:700}
 .big{font-size:7vh;font-weight:700;margin:0}
-.br{display:grid;grid-template-columns:20vw 1fr 7vw;gap:1.2vw;align-items:center;font-size:3vh;margin:1vh 0}
-.br small{font-weight:400;color:var(--mut);font-size:2.2vh}
-.tr{height:3vh;border-radius:2vh;background:rgba(127,127,127,.15);border:.25vh solid var(--ln);overflow:hidden}.tr i{display:block;height:100%;background:var(--ink)}
+.br{display:grid;grid-template-columns:3.4vw 19vw 1fr 9vw;gap:1vw;align-items:center;font-size:2.8vh;margin:.9vh 0}
+.br small{font-weight:400;color:var(--mut);font-size:2.1vh}.br .n{color:var(--mut);text-align:right}.br .v{text-align:right;white-space:nowrap}
+.tr{height:2.8vh;border-radius:2vh;background:rgba(127,127,127,.15);border:.25vh solid var(--ln);overflow:hidden}.tr i{display:block;height:100%;background:var(--ink)}
 .br:first-child .tr i{background:var(--o)}
 .md{position:fixed;inset:0;background:rgba(0,0,0,.45);display:grid;place-items:center;z-index:9}.md .card{text-align:center;padding:4vh 4vw;max-width:70vw}
-/* ---- v1 «Бульбашки школи»: лавандовий фон, білі картки-репліки, помаранчевий логотип */
+/* Цифрова панель для пароля класу */
+.kp .card{padding:3vh 3vw}
+.dots{display:flex;gap:1.6vh;justify-content:center;margin:2.4vh 0 1vh}.dots i{width:3.4vh;height:3.4vh;border-radius:50%;border:.35vh solid #8f8cd6;display:block}.dots i.f{background:var(--o);border-color:var(--o)}
+.perr{min-height:3.2vh;font-size:2.4vh;color:#b42318}
+.keys{display:grid;grid-template-columns:repeat(3,12vh);gap:1.6vh;justify-content:center;margin-top:1vh}
+.key{height:10.5vh;font-size:5vh;font-weight:700;border-radius:2.4vh;background:#fff;color:#2b2840;box-shadow:0 .6vh 0 #cfcdee;border:.3vh solid #cfcdee}
+.key:active{transform:translateY(.5vh);box-shadow:0 .1vh 0 #cfcdee}.key.k2{font-size:2.1vh;background:#f7e6e1}.key.k3{font-size:4vh;background:#f7e6e1}
+.shake{animation:sk .35s}
+/* ---- Тема «Бульбашки школи» (v1) */
 .v1{--pa:#ecebfb;--dot:transparent;--ln:#d9d7f3;--bw:.3vh;--sh:0 1vh 3vh rgba(60,50,150,.12);--ss:0 .5vh 1.4vh rgba(60,50,150,.1);--sel:#1c1c3a;--lg:#f15e38;--lgt:#fff;--go:#f15e38;--got:#fff}
-.v1 .card{border-radius:3.6vh 3.6vh 3.6vh .6vh}.v1 .wod{border-radius:3.6vh 3.6vh .6vh 3.6vh}.v1 .tile,.v1 .opt{border-radius:2.4vh 2.4vh 2.4vh .5vh}
-.v1 .logo{border-radius:50% 46% 52% 44%/60% 55% 48% 52%;padding:3vh 3vw;transform:rotate(-2deg)}.v1 .logo:after{left:5vw;background:#f15e38}
-.v1 .go{border:0}.v1 .tile:nth-child(n),.v1 .wod{transform:none}
-/* ---- v2 «Зошит»: базові стилі (чорні контури, крапки, чорна бульбашка) */
-/* ---- v3 «Помаранчевий фон»: фон кольору школи, білі картки, чорний текст */
-.v3{--pa:#f15e38;--dot:rgba(255,255,255,.22);--lg:#fff;--lgt:#111;--go:#111;--got:#fff;--mut:#555}
-.v3 .wod span{background:#111;color:#fff}.v3 .logo:after{background:#fff}
-/* ---- v4 «Смужки»: білий фон зі смугами, як на сайті школи, пастельні блоки */
-.v4{--pa:#fff;--dot:transparent;--bw:.25vh;--sh:none;--ss:none;--rad:2vh;--sel:#3a3878;--go:#f15e38;--got:#fff}
-.v4 #app:before{content:"";position:absolute;left:0;right:0;top:0;height:2.4vh;background:repeating-linear-gradient(100deg,#f15e38 0 3vw,#fff 3vw 3.6vw,#b9b8dc 3.6vw 6.6vw,#fff 6.6vw 7.2vw,#f6d58e 7.2vw 10.2vw,#fff 10.2vw 10.8vw,#f7c9bb 10.8vw 13.8vw,#fff 13.8vw 14.4vw)}
-.v4 .logo{background:none;color:#111;padding:0 .4vw;font-size:6vh;transform:none;box-shadow:inset 0 -2vh 0 #f6d58e;border-radius:0}.v4 .logo:after{display:none}
-.v4 .wod{background:#f7e6e1;transform:none}.v4 .hero>.card:last-child{background:#ecebfb}.v4 .tile:nth-child(n){transform:none}
-/* ---- v5 «Вечірня дошка»: темний фон, крейдяний текст, помаранчевий і жовтий акценти */
-.v5{--pa:#17172e;--cd:#24244a;--ink:#fff;--mut:#b9b8dc;--ln:#3d3d72;--bw:.3vh;--sh:none;--ss:none;--sel:#f15e38;--selt:#111;--lg:#f6d58e;--lgt:#111;--go:#f15e38;--got:#111;--dot:rgba(255,255,255,.06)}
-.v5 .opt i{background:#f6d58e;color:#111}
-/* ==== Теми 6–10 — розвиток «Бульбашок школи» (до них додається клас v1): вільно, м’яко, трохи хаотично ==== */
-/* ---- v6 «Наліпки й конфеті»: кольорові кружечки на фоні, картки й плитки нахилені по-різному, пастельні плитки */
-body.v6{background-color:#efeefc;background-image:radial-gradient(circle at 7% 12%,#f7c9bb 0 5vh,transparent 5.2vh),radial-gradient(circle at 93% 7%,#f6d58e 0 3vh,transparent 3.2vh),radial-gradient(circle at 46% 97%,#cfcdee 0 6vh,transparent 6.2vh),radial-gradient(circle at 98% 72%,#f15e38 0 1.6vh,transparent 1.8vh),radial-gradient(circle at 2% 82%,#f6d58e 0 2.4vh,transparent 2.6vh),radial-gradient(circle at 58% 3%,#f7c9bb 0 1.4vh,transparent 1.6vh),radial-gradient(circle at 40% 50%,#f15e38 0 .8vh,transparent 1vh);background-size:auto;background-repeat:no-repeat}
-.v6 .hero>.card:nth-child(2){transform:rotate(-2deg)}.v6 .hero>.card:nth-child(3){transform:rotate(1.2deg)}.v6 .setup{transform:rotate(-.4deg)}
-.v6 .tile:nth-child(4n+1){background:#fff3d6}.v6 .tile:nth-child(4n+2){background:#f7e6e1}.v6 .tile:nth-child(4n+3){background:#e4e3fa}.v6 .tile:nth-child(4n){background:#e3f4ea}
-.v6 .tile:nth-child(3n){transform:rotate(1.4deg)}.v6 .tile:nth-child(3n+1){transform:rotate(-1deg)}.v6 .tile:nth-child(3n+2){transform:rotate(.5deg) translateY(.4vh)}
-.v6 .pill:nth-child(odd){transform:rotate(-1.5deg)}.v6 .pill:nth-child(even){transform:rotate(1.2deg)}
-.v6 .tile.on,.v6 .pill.on{background:#1c1c3a;color:#fff}
-/* ---- v7 «Акварель»: розмиті кольорові плями, напівпрозорі картки неправильної форми, пунктирні обводки */
-body.v7{background-color:#f3f1fd;background-image:radial-gradient(46vw 50vh at 6% 14%,rgba(241,94,56,.42),transparent 70%),radial-gradient(40vw 50vh at 94% 6%,rgba(140,138,215,.6),transparent 70%),radial-gradient(50vw 46vh at 66% 98%,rgba(246,213,142,.75),transparent 70%),radial-gradient(34vw 40vh at 16% 94%,rgba(247,190,170,.8),transparent 70%),radial-gradient(26vw 30vh at 45% 45%,rgba(200,240,227,.7),transparent 70%);background-size:auto;background-repeat:no-repeat}
-.v7{--cd:rgba(255,255,255,.62);--ln:rgba(255,255,255,.95);--sh:0 1.5vh 4vh rgba(90,70,160,.14)}
-.v7 .card{-webkit-backdrop-filter:blur(1.2vh);backdrop-filter:blur(1.2vh);border-radius:5vh 3vh 6vh 2vh/4vh 6vh 3vh 5vh}
-.v7 .hero>.card:nth-child(3){border-radius:3vh 6vh 2vh 5vh/6vh 3vh 5vh 3vh}
-.v7 .logo{background:radial-gradient(circle at 30% 30%,#ff8f6b,#f15e38 60%);box-shadow:0 1.4vh 3vh rgba(241,94,56,.35)}
-.v7 .tile,.v7 .pill{border-style:dashed;border-color:#bdbaea}.v7 .tile.on,.v7 .pill.on{border-style:solid;border-color:#1c1c3a}
-.v7 .wod span{border-radius:4vh 1vh 4vh 1vh}
-/* ---- v8 «Скрапбук»: паперові клаптики на смужках скотчу, нерівний край логотипу, «зошитова» картка слова */
-.v8{--pa:#efecfb;--ln:transparent;--sh:0 .8vh 2vh rgba(60,50,150,.16)}
+.v1 .card{border-radius:3.6vh 3.6vh 3.6vh .6vh}.v1 .tile,.v1 .opt{border-radius:2.4vh 2.4vh 2.4vh .5vh}
+.v1 .go{border:0}
+/* ---- «Скрапбук» (v8): менше чорного, обране — пастельне з обвідкою */
+.v8{--pa:#efecfb;--ln:transparent;--sh:0 .8vh 2vh rgba(60,50,150,.16);--ink:#2b2840;--sel:#ffd9cc;--selt:#2b2840;--ring:#f15e38}
 .v8 .card{position:relative;border-radius:1vh}
-.v8 .card:before{content:"";position:absolute;top:-1.3vh;left:42%;width:10vh;height:2.6vh;background:repeating-linear-gradient(45deg,rgba(241,94,56,.55) 0 .8vh,rgba(246,213,142,.75) .8vh 1.6vh);transform:rotate(-4deg)}
-.v8 .hero>.card:nth-child(2){transform:rotate(-2.5deg)}.v8 .hero>.card:nth-child(3){transform:rotate(1.5deg)}
-.v8 .hero>.card:nth-child(3):before{left:12%;background:repeating-linear-gradient(-45deg,rgba(160,158,215,.85) 0 .8vh,rgba(255,255,255,.75) .8vh 1.6vh);transform:rotate(5deg)}
-.v8 .setup:before{top:0;left:auto;right:8%}
-.v8 .wod{background:repeating-linear-gradient(#fffbea 0 3.4vh,#e4e3fa 3.4vh 3.6vh)}
-.v8 .logo{border-radius:0;transform:rotate(-3deg);clip-path:polygon(0 4%,6% 0,15% 5%,25% 0,38% 4%,50% 0,63% 5%,75% 0,88% 4%,100% 0,98% 50%,100% 100%,85% 96%,70% 100%,55% 95%,40% 100%,25% 96%,10% 100%,0 96%,2% 50%)}.v8 .logo:after{display:none}
+.v8 .logo{border-radius:0;transform:rotate(-3deg);clip-path:polygon(0 4%,6% 0,15% 5%,25% 0,38% 4%,50% 0,63% 5%,75% 0,88% 4%,100% 0,98% 50%,100% 100%,85% 96%,70% 100%,55% 95%,40% 100%,25% 96%,10% 100%,0 96%,2% 50%)}
 .v8 .tile{border-radius:.8vh;box-shadow:0 .4vh 1vh rgba(60,50,150,.12)}.v8 .tile:nth-child(odd){transform:rotate(-1.2deg)}.v8 .tile:nth-child(even){transform:rotate(1deg)}
-/* Менше чорного в усій родині «Скрапбука» (8, 11–14): обране — пастельне тло з кольоровою обвідкою */
-.v8{--ink:#2b2840;--sel:#ffd9cc;--selt:#2b2840;--ring:#f15e38}
 .v8 .tile.on,.v8 .pill.on{box-shadow:inset 0 0 0 .45vh var(--ring),0 .4vh 1vh rgba(60,50,150,.12);font-weight:700}
 .v8 .opt i{background:#e4e3fa;color:#3a3878}.v8 .pl .opt i{background:#e4e3fa;color:#3a3878}
 .v8 .tr i{background:#9d9ad8}.v8 .br:first-child .tr i{background:#f15e38}.v8 .tr{border-color:#cfcdee}
-/* ---- v11 «Скрапбук на крафті»: тепле крафтове тло, кремові клаптики, обране — жовте */
-body.v11{background-color:#ebe0cc;background-image:radial-gradient(rgba(120,90,50,.1) .15vh,transparent .22vh);background-size:1.2vh 1.2vh;background-repeat:repeat}
-.v11{--cd:#fffdf7;--sel:#f6d58e;--ring:#c9a03a}
-.v11 .wod{background:repeating-linear-gradient(#fffdf2 0 3.4vh,#efe4cf 3.4vh 3.6vh)}
-.v11 .hero>.card:nth-child(3):before{background:repeating-linear-gradient(-45deg,rgba(241,94,56,.6) 0 .8vh,rgba(255,255,255,.75) .8vh 1.6vh)}
-/* ---- v12 «Фотокутики»: замість скотчу — лавандові кутики, як у фотоальбомі; обране — лавандове */
-.v12 .card:before{display:none}
-.v12 .card{background-image:linear-gradient(135deg,#b9b8dc 0 2.2vh,transparent 2.2vh),linear-gradient(-135deg,#b9b8dc 0 2.2vh,transparent 2.2vh),linear-gradient(45deg,#b9b8dc 0 2.2vh,transparent 2.2vh),linear-gradient(-45deg,#b9b8dc 0 2.2vh,transparent 2.2vh);background-position:top left,top right,bottom left,bottom right;background-size:3.2vh 3.2vh;background-repeat:no-repeat}
-.v12 .wod{background-color:#fffbea;padding-bottom:4vh}
-.v12{--sel:#e4e3fa;--ring:#8f8cd6}
-/* ---- v13 «Стікери-нотатки»: картки як кольорові папірці, налаштування на аркуші в клітинку; обране — м’ятне */
-.v13{--sh:0 1.4vh 1.4vh -.7vh rgba(60,50,120,.32);--sel:#c8f0e3;--ring:#00ae4d}
-.v13 .wod{background:#fff2a8}.v13 .hero>.card:nth-child(3){background:#e4e3fa}
-.v13 .setup{background-color:#fff;background-image:linear-gradient(#eceafc .15vh,transparent .15vh),linear-gradient(90deg,#eceafc .15vh,transparent .15vh);background-size:2.6vh 2.6vh}
-.v13 .card:before{left:-1.6vh;top:.8vh;width:7vh;transform:rotate(-35deg);background:rgba(200,240,227,.9)}
-.v13 .hero>.card:nth-child(3):before{left:auto;right:-1.6vh;transform:rotate(35deg);background:rgba(247,201,187,.9)}
-.v13 .setup:before{left:auto;right:-1vh;top:.4vh;transform:rotate(35deg)}
-/* ---- v14 «Вирізки»: краї карток вирізані фестоном, на тлі паперові фігури; обране — персикове */
+/* ---- «Вирізки» (v14): фестонні краї карток, паперові кола на тлі, обране — персикове */
 body.v14{background-color:#efeefc;background-image:radial-gradient(circle at 4% 92%,#f7c9bb 0 9vh,transparent 9.2vh),radial-gradient(circle at 97% 4%,#f6d58e 0 7vh,transparent 7.2vh),radial-gradient(circle at 52% 102%,#cfcdee 0 8vh,transparent 8.2vh);background-size:auto;background-repeat:no-repeat}
-.v14 .card:before{display:none}
-.v14 .hero>.card,.v14 .setup{box-shadow:none;-webkit-mask:radial-gradient(1vh at 1vh 0,#0000 98%,#000) top/2vh 51% repeat-x,radial-gradient(1vh at 1vh 100%,#0000 98%,#000) bottom/2vh 51% repeat-x;mask:radial-gradient(1vh at 1vh 0,#0000 98%,#000) top/2vh 51% repeat-x,radial-gradient(1vh at 1vh 100%,#0000 98%,#000) bottom/2vh 51% repeat-x;padding-top:3vh;padding-bottom:3vh}
-.v14 .wod{background:#fde8e0}.v14 .hero>.card:nth-child(3){background:#fff}
-/* ---- v9 «Літери в повітрі»: великі напівпрозорі літери на фоні, картки-репліки з хвостиками в різні боки */
-body.v9:before,body.v9:after{position:fixed;z-index:-1;pointer-events:none;font-weight:700;line-height:1}
-body.v9:before{content:"Ї";left:-2vw;bottom:-10vh;font-size:62vh;color:rgba(241,94,56,.3);transform:rotate(-14deg)}
-body.v9:after{content:"Ґ Є";right:-2vw;top:-12vh;font-size:50vh;letter-spacing:-4vh;color:rgba(120,110,205,.3);transform:rotate(10deg)}
-.v9{--cd:rgba(255,255,255,.8)}
-.v9 .card{border-radius:4vh 4vh 4vh 1vh}.v9 .hero>.card:nth-child(3){border-radius:4vh 4vh 1vh 4vh}
-.v9 .wod{position:relative;overflow:visible}.v9 .wod:after{content:"";position:absolute;right:-2.2vh;top:40%;width:3vh;height:3vh;background:var(--cd);clip-path:polygon(0 0,100% 50%,0 100%)}
-.v9 .tile{border-radius:3vh}.v9 .pill{border-radius:5vh 5vh 5vh 1vh}
-.v9 .wod b{color:#f15e38}
-/* ---- v10 «Каракулі й маркер»: хвилясті закарлючки на фоні, нерівні контури, маркерне підкреслення підписів */
-body.v10{background-color:#f6f5ff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Cpath d='M20 60 q20-30 40 0 t40 0 t40 0' fill='none' stroke='%23f15e38' stroke-opacity='.35' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M400 310 q20-30 40 0 t40 0 t40 0' fill='none' stroke='%23b9b8dc' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='500' cy='80' r='14' fill='none' stroke='%23f6d58e' stroke-width='5'/%3E%3Cpath d='M120 330 l12 12 m0-12 l-12 12' stroke='%23f15e38' stroke-opacity='.4' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M250 170 c10-20 30-20 25 0 s-25 20-15 0' fill='none' stroke='%23b9b8dc' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");background-size:48vh 32vh}
-.v10{--cd:rgba(255,255,255,.88)}
-.v10 .card{border:.3vh solid #1c1c3a;border-radius:4vh 2vh 5vh 2.6vh/2.6vh 5vh 2vh 4vh;box-shadow:.6vh .8vh 0 #b9b8dc}
-.v10 .tile,.v10 .pill{border:.25vh solid #1c1c3a;border-radius:2vh 1.2vh 2.4vh 1vh/1vh 2.4vh 1.2vh 2vh;box-shadow:.4vh .5vh 0 #e2d9ff}
-.v10 .lab{align-self:flex-start;color:#1c1c3a;background:linear-gradient(transparent 55%,#f6d58e 55% 92%,transparent 92%);padding:0 .4vw}
-.v10 .go{border:.3vh solid #1c1c3a;box-shadow:.5vh .6vh 0 #1c1c3a}
-.v10 .wod b{background:linear-gradient(transparent 60%,rgba(241,94,56,.35) 60% 90%,transparent 90%)}
-</style></head><body><div id="app"></div>
+.v14 .hero>.card,.v14 .duo>.card,.v14 .setup{box-shadow:none;-webkit-mask:radial-gradient(1vh at 1vh 0,#0000 98%,#000) top/2vh 51% repeat-x,radial-gradient(1vh at 1vh 100%,#0000 98%,#000) bottom/2vh 51% repeat-x;mask:radial-gradient(1vh at 1vh 0,#0000 98%,#000) top/2vh 51% repeat-x,radial-gradient(1vh at 1vh 100%,#0000 98%,#000) bottom/2vh 51% repeat-x;padding-top:2.8vh;padding-bottom:2.8vh}
+.v14 .wod{background:#fde8e0}
+</style></head><body class="v14 v1 v8"><div id="app"></div>
 <script>
-// ---- Ігри. Кожна гра має свій діапазон класів g:[від, до], тож у кожному віці — свої формати.
-// Дані — рядки з полями через «|». Порядок полів описано над кожною базою.
-const D={
-// емодзі|слово|підказка (1–2 кл., складаємо слово з літер)
-word:`🐱|кіт|Муркоче й ловить мишей
-🐶|пес|Гавкає й охороняє двір
-🦊|лисиця|Руда, хитра, з пишним хвостом
-🦉|сова|Уночі не спить, а вдень дрімає
+// ===================== ЗАВДАННЯ =====================
+// Кожна гра (набір) — рівно 25 завдань. Кожен клас має 4 ігри (див. GR), отже максимум — 100 завдань × 10 балів = 1000 балів.
+// Рядки завдань НЕ переставляйте й не видаляйте під час змагання: клас запам’ятовує номер рядка. Виправляти текст у рядку можна.
+// Типи (t): b — склади слово з літер; first — перший звук; syll — кількість складів; odd — що зайве;
+// alpha — абетка; voice — хто як говорить; read — прочитай і відповідай; anto — протилежні слова; two — «правильно|неправильно»;
+// say — «невдало|краще»; little — лагідне слово й малюк; root — слово-родич; parts — частина мови; voc — кличний відмінок;
+// str — наголос; mean — значення вислову; dial — діалектне слово; slang — сленг; fact — факт чи думка; myth — правда чи міф;
+// nstr — наголос у форматі НМТ; par — пароніми.
+const P={
+first:{n:'Перший звук',i:'🔤',t:'first',s:'З якого звука починається слово',d:`
+🍉|кавун|К
+🐄|корова|К
+🦊|лисиця|Л
+🦁|лев|Л
+🍋|лимон|Л
+🐒|мавпа|М
+🍯|мед|М
+🦋|метелик|М
+👃|ніс|Н
+🦵|нога|Н
+🐯|тигр|Т
+🎂|торт|Т
+🚜|трактор|Т
+🐘|слон|С
+🦉|сова|С
+☀️|сонце|С
+👂|вухо|В
+🐺|вовк|В
+🌳|дерево|Д
+🚪|двері|Д
+🐌|равлик|Р
+🚀|ракета|Р
+🦜|папуга|П
+🦈|акула|А
+🥒|огірок|О`},
+syll:{n:'Скільки складів?',i:'👏',t:'syll',s:'Плескаємо в долоні',d:`
+🧀|сир
+🐘|слон
+🍯|мед
+🐳|кит
+🎂|торт
+🐺|вовк
+🦁|лев
+🦉|сова
+🐒|мавпа
+🐟|риба
+📖|книга
+✋|рука
+🌊|море
+⛰️|гора
+☀️|сонце
+🚀|ракета
+🐄|корова
+🥕|морква
+🌳|дерево
+🦊|лисиця
+🍎|яблуко
+🦋|метелик
+🐢|черепаха
+☂️|парасолька
+🌽|кукурудза`},
+word1:{n:'Склади слово',i:'🧩',t:'b',s:'Коротенькі слова',d:`
+🐱|кіт|Муркоче
+🐳|кит|Живе в морі
+🧀|сир|Його люблять миші
+👃|ніс|Ним нюхаємо
+🦁|лев|Цар звірів
+🍯|мед|Його дають бджоли
+🧃|сік|Смачний напій
+🦞|рак|Ходить задки
+🎂|торт|Буває на святі
+🐘|слон|Має хобот
+🦉|сова|Не спить уночі
+✋|рука|Має п’ять пальців
+🦵|нога|Нею ходимо
+👂|вухо|Ним слухаємо
+🐟|риба|Плаває у воді
 🐺|вовк|Сірий, живе в лісі
+🐐|коза|Має ріжки
+✉️|лист|Його надсилають
+🏠|дім|Тут ми живемо
+🌲|ліс|Тут багато дерев
+🏹|лук|Стріляє стрілами
+🌊|море|Багато води
+⛰️|гора|Дуже висока
+🎵|ноти|Ними записують музику
+🛷|сани|Їздять по снігу`},
+odd:{n:'Що зайве?',i:'🕵️',t:'odd',s:'Знайди зайву картинку',d:`
+🍎 🍐 🍌|🚗|фрукти
+🐶 🐱 🐮|🌷|тварини
+🚗 🚌 🚲|🍌|транспорт
+🌹 🌻 🌷|🐟|квіти
+🥕 🥒 🧅|🧸|овочі
+👕 👗 🧣|🐸|одяг
+✏️ 📏 📒|🍓|шкільне приладдя
+🐟 🐬 🐳|🐔|ті, хто живе у воді
+☀️ ⭐ 🌙|🏠|те, що на небі
+🍰 🍪 🍩|🧦|солодощі
+🦁 🐯 🦒|🐄|дикі тварини
+🐔 🦆 🦢|🐈|птахи
+⚽ 🏀 🏐|📚|м’ячі
+🎻 🥁 🎺|🍉|музичні інструменти
+🌲 🌳 🌴|🦊|дерева
+🚀 ✈️ 🚁|🚂|те, що літає
+❄️ ⛄ 🧤|🏖️|зима
+🐝 🦋 🐞|🐘|комахи
+🥛 🧃 ☕|🍞|напої
+🛏️ 🪑 🛋️|🍎|меблі
+🐄 🐖 🐑|🦊|свійські тварини
+👂 👃 👁️|🧦|частини обличчя
+🍕 🍔 🌭|🧸|їжа
+🦀 🐙 🦈|🐒|мешканці моря
+🌧️ ❄️ 🌈|🚗|явища природи`},
+word2:{n:'Склади слово',i:'🧩',t:'b',s:'Довші слова',d:`
+🦊|лисиця|Руда, хитра, з пишним хвостом
 🐰|зайчик|Довгі вуха, короткий хвостик
-🦔|їжак|Колючий клубочок
-🐋|кит|Найбільший мешканець моря
-🐸|жаба|Зелена, стрибає й кумкає
-🐟|риба|Плаває, а говорити не вміє
-🐝|бджола|Дзижчить і збирає мед
-🐜|мураха|Маленька трудівниця з мурашника
-🐌|равлик|Носить свій будиночок на спині
-🦁|лев|Цар звірів із гривою
-🐯|тигр|Велика смугаста кішка
+🐜|мураха|Маленька трудівниця
+🐌|равлик|Носить будиночок на спині
 🦓|зебра|Конячка в смужечку
 🦒|жираф|У нього найдовша шия
-🐘|слон|Має хобот і великі вуха
 🐒|мавпа|Спритно лазить по деревах
-🐐|коза|Має ріжки й борідку
 🐄|корова|Дає нам молоко
-🐴|кінь|Має гриву й копита
 🦆|качка|Плаває у ставку й крякає
 🐓|півень|Будить усіх уранці
-🐔|курка|Несе яйця
 🦈|акула|Хижа риба з гострими зубами
-🦀|краб|Ходить боком
-🐍|змія|Довга, без ніг, сичить
-🐭|мишка|Боїться кота
 🐞|сонечко|Червоне, з чорними цятками
-🍎|яблуко|Росте в саду, буває червоне й зелене
-🍐|груша|Солодкий плід, схожий на лампочку
+🍎|яблуко|Буває червоне й зелене
 🍌|банан|Жовтий, його люблять мавпи
 🍋|лимон|Жовтий і дуже кислий
 🍉|кавун|Зелений зовні, червоний усередині
-🥕|морква|Помаранчева, її любить зайчик
-🍄|гриб|Росте в лісі після дощу
+🥕|морква|Її любить зайчик
 🎃|гарбуз|Великий, помаранчевий, достигає восени
-🧅|цибуля|Від неї плачуть
-🥚|яйце|Його несе курка
-☀️|сонце|Світить і гріє вдень
-⭐|зірка|Світиться вночі на небі
-☁️|хмара|Пливе по небу, буває з дощем
-❄️|сніг|Білий, холодний, падає взимку
 🌈|веселка|Різнобарвна дуга після дощу
 🌙|місяць|Світить уночі
-🌸|квітка|Гарна й пахуча
-🌳|дерево|Має стовбур і гілки
-🍁|листок|Восени жовтіє й падає
 🔥|вогонь|Гарячий і яскравий
-🌊|море|Багато солоної води
-⛰️|гора|Дуже висока, з вершиною
-📖|книга|Її читають
 ✏️|олівець|Ним малюють і пишуть
-✉️|лист|Його надсилають поштою
-🔑|ключ|Відмикає замок
 🔔|дзвоник|Кличе на урок
-✈️|літак|Літає високо в небі
-🚂|потяг|Їде рейками
-⛵|човен|Пливе по воді з вітрилом
 🚀|ракета|Летить у космос
-🚗|машина|Їде дорогою на чотирьох колесах
-🎂|торт|Солодкий, зі свічками на свято
-🍞|хліб|Його печуть із борошна
-🥛|молоко|Біле, його дає корова
-🍯|мед|Солодкий, його збирають бджоли
-👗|сукня|Гарний одяг для свята
-🧣|шарф|Гріє шию взимку
-✋|рука|Має п’ять пальців
-👂|вухо|Ним слухаємо
-👃|ніс|Ним нюхаємо
-❤️|серце|Б’ється в грудях
-🎈|кулька|Повітряна, летить угору
-🛏️|ліжко|На ньому спимо
-🚪|двері|Їх відчиняють і зачиняють
-🎄|ялинка|Її прикрашають на свята`,
-// емодзі|тварина|як подає голос (1–2 кл.)
-voice:`🐱|Кіт|нявкає
+🎄|ялинка|Її прикрашають на свята`},
+alpha:{n:'Абетка',i:'🔠',t:'alpha',s:'Порядок букв і слів',d:`
+a|Б
+a|Г
+a|Е
+a|И
+a|І
+a|Ї
+a|К
+a|Н
+a|П
+a|С
+a|Ф
+a|Ч
+a|Ю
+a|Ж
+w|кіт;сир;лев
+w|мак;ліс;сом
+w|риба;вода;зима
+w|груша;банан;диня
+w|олень;їжак;ґудзик
+w|яблуко;юшка;щука
+w|шапка;чашка;цукор
+w|ірис;ехо;єнот
+w|хата;фото;учень
+w|тигр;пес;корова
+w|голуб;ґава;дятел`},
+voice:{n:'Хто як говорить?',i:'🐾',t:'voice',s:'Тварини та їхні голоси',d:`
+🐱|Кіт|нявкає
 🐶|Пес|гавкає
 🐄|Корова|мукає
 🐴|Кінь|ірже
@@ -274,73 +298,12 @@ voice:`🐱|Кіт|нявкає
 🐦|Ворона|каркає
 🐦|Ластівка|щебече
 🐦|Соловей|тьохкає
-🐟|Риба|мовчить`,
-// d|слово|лагідна форма  або  b|тварина|малюк (1–2 кл.)
-little:`d|сонце|сонечко
-d|рука|рученька
-d|мама|мамуся
-d|тато|татусь
-d|заєць|зайчик
-d|вода|водичка
-d|квітка|квіточка
-d|зірка|зірочка
-d|хмара|хмаринка
-d|птах|пташка
-d|риба|рибка
-d|сніг|сніжок
-d|листок|листочок
-d|дерево|деревце
-d|вухо|вушко
-d|нога|ніжка
-d|голова|голівка
-d|серце|серденько
-d|будинок|будиночок
-d|ліс|лісок
-d|яблуко|яблучко
-d|ягода|ягідка
-d|гриб|грибочок
-d|пес|песик
-d|вовк|вовчик
-d|лисиця|лисичка
-d|ведмідь|ведмедик
-d|баба|бабуся
-d|дід|дідусь
-d|сестра|сестричка
-d|брат|братик
-d|книжка|книжечка
-d|м’яч|м’ячик
-d|ялина|ялинка
-d|слово|словечко
-d|хата|хатинка
-d|зерно|зернятко
-d|крило|крильце
-d|гніздо|гніздечко
-b|кішка|кошеня
-b|собака|цуценя
-b|корова|теля
-b|кінь|лоша
-b|вівця|ягня
-b|свиня|порося
-b|курка|курча
-b|качка|каченя
-b|гуска|гусеня
-b|коза|козеня
-b|вовк|вовченя
-b|лисиця|лисеня
-b|ведмідь|ведмежа
-b|заєць|зайченя
-b|білка|білченя
-b|лев|левеня
-b|сова|совеня
-b|слон|слоненя
-b|жаба|жабеня
-b|миша|мишеня
-b|тигр|тигреня
-b|орел|орленя
-b|лелека|лелеченя
-b|їжак|їжаченя`,
-// текст|питання|правильна відповідь|хибні через «;» (1–2 кл., читання)
-read1:`Кіт спить на печі.|Де спить кіт?|на печі|у будці;на дереві
+🐟|Риба|мовчить
+🐦|Лелека|клекоче
+🐦|Дятел|стукає
+🐦|Сорока|скрекоче`},
+read1:{n:'Прочитай і знайди',i:'📖',t:'read',s:'Читаємо коротке речення',d:`
+Кіт спить на печі.|Де спить кіт?|на печі|у будці;на дереві
 У Олі червона кулька.|Яка кулька в Олі?|🔴 червона|🔵 синя;🟢 зелена
 Тато купив три яблука.|Скільки яблук купив тато?|3|2;5
 Зранку пішов дощ, і Петрик узяв парасольку.|Чому Петрик узяв парасольку?|бо пішов дощ|бо світило сонце;бо випав сніг
@@ -356,7 +319,6 @@ read1:`Кіт спить на печі.|Де спить кіт?|на печі|у
 На гілці сидять дві пташки.|Скільки пташок на гілці?|2|1;4
 Восени листя жовтіє і падає.|Що буває з листям восени?|жовтіє і падає|розквітає;стає синім
 Діти пішли до лісу по гриби.|Навіщо діти пішли до лісу?|по гриби|по рибу;по сніг
-Корова дає молоко.|Що дає корова?|🥛 молоко|🍯 мед;🥚 яйця
 Бджола летить до квітки.|Куди летить бджола?|до квітки|до моря;до школи
 Андрій прокинувся, вмився і поснідав.|Що Андрій зробив найперше?|прокинувся|поснідав;вмився
 Зайчик сховався під кущем.|Де сховався зайчик?|під кущем|на даху;у воді
@@ -364,15 +326,10 @@ read1:`Кіт спить на печі.|Де спить кіт?|на печі|у
 У нашому класі живе папуга Кеша.|Хто живе в класі?|папуга|кіт;хом’ячок
 Наталка вдягла шапку, бо надворі холодно.|Чому Наталка вдягла шапку?|бо холодно|бо спекотно;бо свято
 Ведмідь узимку спить у барлозі.|Що робить ведмідь узимку?|спить|плаває;співає
-Слон великий, а мишка маленька.|Хто маленький?|🐭 мишка|🐘 слон;🦒 жираф
-Після дощу на небі з’явилася веселка.|Що з’явилося на небі?|🌈 веселка|⭐ зірка;🚀 ракета
-Дід Іван посадив яблуньку.|Що посадив дід?|яблуньку|грушу;квіти
-Каченята пливуть за мамою-качкою.|За ким пливуть каченята?|за мамою-качкою|за гускою;за рибкою
 Сашко забув зошит удома й засмутився.|Як почувався Сашко?|засмутився|зрадів;розсміявся
-Улітку ми купалися в річці.|Де ми купалися?|у річці|у ванні;у басейні
-Бабуся читає онукам казку перед сном.|Коли бабуся читає казку?|перед сном|уранці;в обід`,
-// слово|протилежне (2–4 кл.)
-anto:`веселий|сумний
+Бабуся читає онукам казку перед сном.|Коли бабуся читає казку?|перед сном|уранці;в обід`},
+anto:{n:'Навпаки',i:'🔄',t:'anto',s:'Слова з протилежним значенням',d:`
+веселий|сумний
 великий|малий
 високий|низький
 швидкий|повільний
@@ -388,133 +345,42 @@ anto:`веселий|сумний
 мокрий|сухий
 чистий|брудний
 вгору|вниз
-близький|далекий
 рано|пізно
 початок|кінець
-дружба|ворожнеча
 радість|смуток
 сміливий|боязкий
 солодкий|гіркий
-густий|рідкий
-товстий|тонкий
-твердий|м’який
 глибокий|мілкий
-багатий|бідний
 щедрий|скупий
-працьовитий|ледачий
 голосно|тихо
-зима|літо
-вперед|назад
-купити|продати
-відчинити|зачинити
-сміятися|плакати
-знайти|загубити
-ввімкнути|вимкнути
-вхід|вихід
-спереду|ззаду
-питання|відповідь
-перший|останній
-веселитися|сумувати`,
-// слово|родич|несправжні родичі через «;»|пояснення (3–4 кл.)
-root:`ліс|лісник|лисиця;листя|Лисиця — родичка слова «лис», а листя — слова «лист».
-вода|водяний|водій|Водій — від слова «водити».
-гора|гірський|горіти|Горіти — про вогонь, це інший корінь.
-сіль|солоний|сильний|Сильний — від слова «сила».
-дім|домівка|димок|Димок — від слова «дим».
-кіт|котячий|китовий|Китовий — від слова «кит».
-сніг|сніжинка|снідати|
-рука|ручка|річка|Річка — від слова «ріка».
-нога|ніжка|ніж|Ніж — зовсім інше слово.
-вухо|вушко|вуж|
-хліб|хлібний|хлів|Хлів — приміщення для худоби, зовсім інше слово.
-сонце|сонечко|сонний|Сонний — від слова «сон».
-вітер|вітряк|вітати|Вітати — зовсім інше слово, як у «привітання».
-море|моряк|мороз|
-сир|сирник|сирена|Сирена — запозичене слово.
-лід|льодяник|лідер|Лідер — слово з англійської мови.
-гриб|грибник|грива|
-квітка|квітень|квиток|Квітень назвали так, бо тоді все квітне!
-вишня|вишневий|вишиванка|Вишиванка — від слова «вишивати».
-мед|медовий|медаль|
-сова|совеня|совок|
-лист|листопад|лисиця|Листопад — місяць, коли падає листя!
-чай|чайник|чайка|Чайка — це птах, інше слово.
-дощ|дощовий|дошка|
-сокіл|соколя|сокира|
-ворона|вороненя|ворота|
-весна|весняний|весло|
-мороз|морозиво|морква|Морозиво — бо воно холодне, як мороз!
-голос|голосний|голова|
-книга|книжковий|кнопка|
-поле|польовий|полиця|
-вогонь|вогник|вологий|
-береза|березовий|берег|
-трава|травень|трамвай|Травень названо від трави, яка буяє в цей місяць!
-липа|липень|лимон|У липні цвіте липа — звідси й назва!
-жовтий|жовтень|жолудь|Жовтень — коли листя жовтіє!
-школа|шкільний|шкода|
-сміх|смішний|сміття|
-мило|мильний|милий|Милий — це «любий», інше слово.
-дуб|дубовий|дубль|`,
-// називний|кличний (3–5 кл.)
-voc:`Петро|Петре
-Оксана|Оксано
-Андрій|Андрію
-Марія|Маріє
-Ольга|Ольго
-Микола|Миколо
-Іван|Іване
-Олег|Олегу
-Ігор|Ігорю
-Сергій|Сергію
-Тарас|Тарасе
-Наталя|Наталю
-Олена|Олено
-Ярослав|Ярославе
-Максим|Максиме
-Дмитро|Дмитре
-Софія|Софіє
-Ілля|Ілле
-Тетяна|Тетяно
-Оля|Олю
-Микита|Микито
-Олександр|Олександре
-Богдан|Богдане
-Данило|Даниле
-Василь|Василю
-Матвій|Матвію
-Остап|Остапе
-Ірина|Ірино
-Марко|Марку
-Анна|Анно
-Надія|Надіє
-Любов|Любове
-Святослав|Святославе
-друг|друже
-козак|козаче
-хлопець|хлопче
-дівчина|дівчино
-мама|мамо
-тато|тату
-бабуся|бабусю
-дідусь|дідусю
-сестра|сестро
-брат|брате
-син|сину
-Леся|Лесю
-Роман|Романе
-Юлія|Юліє
-Віктор|Вікторе
-Степан|Степане
-Київ|Києве
-Україна|Україно
-пан учитель|пане вчителю
-пані Олена|пані Олено
-лікар|лікарю
-земля|земле
-Святий Миколай|Святий Миколаю`,
-// текст|питання|правильна відповідь|хибні через «;» (3–4 кл., уважне читання)
-read2:`Оленка мала п’ять цукерок. Дві вона віддала братикові.|Скільки цукерок залишилося в Оленки?|3|2;5
+відчинити|зачинити`},
+apos:{n:'Апостроф і м’який знак',i:'✏️',t:'two',s:'Як правильно написати',d:`
+п’ять|пять
+дев’ять|девять
+м’яч|мяч
+м’ята|мята
+м’ясо|мясо
+м’який|мякий
+сім’я|сімя
+пір’я|піря
+бур’ян|бурян
+подвір’я|подвіря
+пам’ять|память
+в’язати|вязати
+б’ють|бють
+п’є|пє
+солов’ї|соловї
+здоров’я|здоровя
+комп’ютер|компютер
+зв’язок|звязок
+з’їсти|зїсти
+риб’ячий|рибячий
+день|ден
+кінь|кін
+тінь|тін
+сіль|сіл
+учень|учен`},
+read2:{n:'Уважне читання',i:'🔍',t:'read',s:'Хто, де, чому?',d:`
 Ластівки восени відлітають у вирій. Навесні вони повертаються й ліплять гнізда.|Коли ластівки ліплять гнізда?|навесні|восени;взимку
 Тарас прийшов до школи раніше за всіх. Двері ще були зачинені.|Чому Тарас не зміг зайти?|двері ще були зачинені|він забув ключ;був вихідний
 Уночі випав сніг. Зранку діти побачили на ньому сліди зайця.|Коли випав сніг?|уночі|зранку;увечері
@@ -533,159 +399,171 @@ read2:`Оленка мала п’ять цукерок. Дві вона від�
 Олеся загубила рукавичку. Її знайшов Денис і повернув.|Хто повернув рукавичку?|Денис|Олеся;вчителька
 До бабусі ми йшли пішки, а назад поїхали автобусом.|Як ми поверталися?|автобусом|пішки;потягом
 Рибалка сидів на березі з самого ранку, але не впіймав жодної рибини.|Скільки риби впіймав рибалка?|жодної|одну;багато
-Петрик поділив яблуко навпіл і віддав половинку другові.|Яку частину яблука отримав друг?|половинку|ціле яблуко;чверть
 Бабуся сказала: «Без труда нема плода».|Що означають слова бабусі?|щоб мати результат, треба працювати|фрукти ростуть самі;треба менше їсти
 Маленьке кошеня боялося собаки, але собака лише хотів погратися.|Чого насправді хотів собака?|погратися|налякати кошеня;забрати молоко
-Учні посадили біля школи десять дубків. Три з них не прийнялися.|Скільки дубків прийнялося?|7|10;3
-Сьогодні понеділок. Екскурсія буде через два дні.|Коли буде екскурсія?|у середу|у вівторок;у четвер
 Улянка вдягла гумові чоботи й узяла парасольку.|Яка, найімовірніше, погода?|дощова|спекотна;морозна
 Кіт сидів біля акваріума і не зводив очей з рибок.|Що цікавило кота?|рибки|миска;м’ячик
 На подвір’ї було тихо: всі спали, лише годинник цокав.|Що порушувало тишу?|годинник|пес;півень
 Вовчик Сірко хотів дістати виноград, але не зміг і сказав: «Він ще кислий!»|Чому Сірко назвав виноград кислим?|бо не зміг його дістати|бо скуштував його;бо так сказала мама
-Ліна прочитала книжку за два дні, а Марта — за тиждень.|Хто прочитав книжку швидше?|Ліна|Марта;обидві однаково
-У кошику було шість грибів: чотири білі, а решта — лисички.|Скільки лисичок у кошику?|2|4;6`,
-// слово з наголосом (велика літера) (5–6 кл.)
-str:`тОрти
-горОх
-ґУдзик
-дОнька
-дочкА
-вЕчір
-кОлесо
-фартУх
-одинАдцять
-чотирнАдцять
-квартАл
-портфЕль
-шофЕр
-цемЕнт
-договІр
-каталОг
-кУхонний
-сантимЕтр
-кіломЕтр
-завдАння
-запитАння
-читАння
-навчАння
-пОмилка
-листопАд
-зрУчний
-дрІжджі
-кИлимок
-подрУга
-вИпадок
-чарівнИй
-зАгадка
-новИй
-черговИй
-рАзом
-вітчИм`,
-// правильно|неправильно (5–6 кл.)
-spell:`п’ятниця|пятниця
-здоров’я|здоровя
-розв’язати|розвязати
-м’ята|мята
-сім’я|сімя
-пір’я|піря
-бур’ян|бурян
-комп’ютер|компютер
-подвір’я|подвіря
-черв’як|червяк
-торф’яний|торфяний
-інтерв’ю|інтервю
-п’єса|пєса
-кур’єр|курєр
-свято|св’ято
-цвях|цв’ях
-морквяний|моркв’яний
-рюкзак|р’юкзак
-бюро|б’юро
-пюре|п’юре
-тьмяний|тьм’яний
-пісня|пісьня
-кінчик|кіньчик
-сьогодні|сьогодня
-кільце|кілце
-різьба|різба
-український|украінський
-козацький|козацкий
-близько|близко
-учительський|учителський
-знання|знаня
-весілля|весіля
-узбережжя|узбережя
-обличчя|обличя
-зілля|зіля
-ввічливий|вічливий
-беззахисний|безахисний
-старанний|стараний
-законний|законий
-осінній|осінний
-туманний|туманий
-безцінний|безціний
-письменник|письменик
-годинник|годиник
-віконний|віконий
-юний|юнний
-соняшник|сонняшник
-дерев’яний|дерев’янний
-олов’яний|олов’янний
-глиняний|глинянний
-скляний|склянний
-солом’яний|солом’янний
-священний|священий
-шалений|шаленний
-зелений|зеленний
-бджола|бжола
-їжа|йіжа`,
-// вислів|значення (5–7 кл.)
-phr:`як кіт наплакав|дуже мало
+У кошику було шість грибів: чотири білі, а решта — лисички.|Скільки лисичок у кошику?|2|4;6`},
+little:{n:'Маленьке й лагідне',i:'🧸',t:'little',s:'Лагідні слова й малята',d:`
+d|сонце|сонечко
+d|рука|рученька
+d|мама|мамуся
+d|тато|татусь
+d|вода|водичка
+d|квітка|квіточка
+d|зірка|зірочка
+d|хмара|хмаринка
+d|сніг|сніжок
+d|вухо|вушко
+d|нога|ніжка
+d|серце|серденько
+d|ягода|ягідка
+b|кішка|кошеня
+b|собака|цуценя
+b|корова|теля
+b|кінь|лоша
+b|вівця|ягня
+b|свиня|порося
+b|курка|курча
+b|качка|каченя
+b|гуска|гусеня
+b|коза|козеня
+b|ведмідь|ведмежа
+b|білка|білченя`},
+root:{n:'Слова-родичі',i:'🌳',t:'root',s:'Знайди спільний корінь',d:`
+ліс|лісник|лисиця;листя|Лисиця — родичка слова «лис», а листя — слова «лист».
+вода|водяний|водій|Водій — від слова «водити».
+гора|гірський|горіти|Горіти — про вогонь, це інший корінь.
+сіль|солоний|сильний|Сильний — від слова «сила».
+дім|домівка|димок|Димок — від слова «дим».
+кіт|котячий|китовий|Китовий — від слова «кит».
+рука|ручка|річка|Річка — від слова «ріка».
+нога|ніжка|ніж|Ніж — зовсім інше слово.
+хліб|хлібний|хлів|Хлів — приміщення для худоби, зовсім інше слово.
+сонце|сонечко|сонний|Сонний — від слова «сон».
+вітер|вітряк|вітати|Вітати — зовсім інше слово, як у «привітання».
+сир|сирник|сирена|Сирена — запозичене слово.
+лід|льодяник|лідер|Лідер — слово з англійської мови.
+квітка|квітень|квиток|Квітень назвали так, бо тоді все квітне!
+вишня|вишневий|вишиванка|Вишиванка — від слова «вишивати».
+мед|медовий|медаль|
+лист|листопад|лисиця|Листопад — місяць, коли падає листя!
+чай|чайник|чайка|Чайка — це птах, інше слово.
+дощ|дощовий|дошка|
+весна|весняний|весло|
+мороз|морозиво|морква|Морозиво — бо воно холодне, як мороз!
+трава|травень|трамвай|Травень названо від трави, яка буяє в цей місяць!
+липа|липень|лимон|У липні цвіте липа — звідси й назва!
+школа|шкільний|шкода|
+мило|мильний|милий|Милий — це «любий», інше слово.`},
+parts:{n:'Хто? Який? Що робить?',i:'❓',t:'parts',s:'Іменник, прикметник, дієслово',d:`
+сонце|i
+веселий|p
+співає|d
+книжка|i
+зелений|p
+читає|d
+дерево|i
+високий|p
+малює|d
+ластівка|i
+теплий|p
+стрибає|d
+школа|i
+смачний|p
+пише|d
+місто|i
+синій|p
+летить|d
+учитель|i
+лагідний|p
+сміється|d
+річка|i
+швидкий|p
+будує|d
+квітка|i`},
+voc:{n:'Поклич!',i:'📣',t:'voc',s:'Кличний відмінок',d:`
+Петро|Петре
+Оксана|Оксано
+Андрій|Андрію
+Марія|Маріє
+Ольга|Ольго
+Микола|Миколо
+Іван|Іване
+Олег|Олегу
+Ігор|Ігорю
+Тарас|Тарасе
+Наталя|Наталю
+Софія|Софіє
+Ілля|Ілле
+Микита|Микито
+Данило|Даниле
+Любов|Любове
+Марко|Марку
+друг|друже
+козак|козаче
+хлопець|хлопче
+тато|тату
+Київ|Києве
+Україна|Україно
+пан учитель|пане вчителю
+Святий Миколай|Святий Миколаю`},
+phr:{n:'Фразеологізми',i:'🎭',t:'mean',s:'Що означає вислів',d:`
+як кіт наплакав|дуже мало
 накивати п’ятами|втекти
 бити байдики|нічого не робити
 на сьомому небі|бути надзвичайно щасливим
 тримати язик за зубами|мовчати, не розповідати
 ґав ловити|бути неуважним
-пекти раків|червоніти від сорому
 водою не розлити|бути дуже дружніми
 ні світ ні зоря|дуже рано
 собаку з’їсти|добре розбиратися в чомусь
-піймати облизня|зазнати невдачі
-берегти як зіницю ока|дуже дбайливо оберігати
 вішати носа|сумувати, занепадати духом
-заварити кашу|затіяти клопітку справу
 ламати голову|напружено над чимось думати
-гнути своє|уперто наполягати на своєму
 ведмежа послуга|«допомога», що завдає шкоди
-сім п’ятниць на тижні|часто змінювати рішення
 не за горами|скоро, незабаром
-прикусити язика|раптом замовкнути
-пускати пил в очі|хизуватися, вводити в оману
-мокрий як хлющ|дуже мокрий
 хоч греблю гати|дуже багато
 як грім серед ясного неба|несподівано
-як сніг на голову|несподівано
 клювати носом|дрімати
-показати, де раки зимують|суворо провчити
 слухати з відкритим ротом|слухати дуже уважно, захоплено
-душа в п’яти втекла|стало дуже страшно
 мов у воду дивився|ніби знав наперед
 зарубати на носі|добре запам’ятати
-розбити глек|посваритися
 як з голочки|новий, охайний
 рукою подати|дуже близько
-куди очі дивляться|навмання, без мети
 дерти носа|зазнаватися
-як муха в окропі|дуже метушитися
-через пень-колоду|абияк, недбало
 як дві краплі води|дуже схожі
 брати близько до серця|дуже перейматися
-як з гуски вода|нічого не діє, байдуже
-п’яте колесо до воза|зайвий
-як на долоні|добре видно
-одним духом|швидко, не зупиняючись`,
-// текст|питання|правильна відповідь|хибні через «;» (5–6 кл., читаємо між рядками)
-read3:`Олег зайшов до класу мокрий, з парасолькою в руці.|Що можна зрозуміти?|надворі дощ|Олег купався в річці;Олег запізнився на потяг
+як на долоні|добре видно`},
+say:{n:'Говоримо гарно',i:'🗣️',t:'say',s:'Без мовних помилок',d:`
+приймати участь|брати участь
+вірна відповідь|правильна відповідь
+кажеться|здається
+співпадати|збігатися
+включити світло|увімкнути світло
+получити|отримати
+слідуючий|наступний
+на протязі дня|протягом дня
+більш краще|краще
+самий кращий|найкращий
+вибачаюсь|вибачте
+Скільки годин?|Котра година?
+задавати питання|ставити запитання
+займати перше місце|посідати перше місце
+слідкувати за новинами|стежити за новинами
+Пішли додому!|Ходімо додому!
+Давайте пограємо!|Пограймо!
+дякую вас|дякую вам
+вибачте мене|вибачте мені
+іти по вулиці|іти вулицею
+говорити на українській|говорити українською
+хворіти за команду|вболівати за команду
+заніматися спортом|займатися спортом
+Він старше мене|Він старший за мене
+Ось ваша здача|Ось ваша решта`},
+read3:{n:'Читаємо між рядками',i:'🕵️',t:'read',s:'Що не сказано прямо',d:`
+Олег зайшов до класу мокрий, з парасолькою в руці.|Що можна зрозуміти?|надворі дощ|Олег купався в річці;Олег запізнився на потяг
 Марта двічі перечитала лист, усміхнулася й притисла його до серця.|Який лист отримала Марта?|приємний|сумний;незрозумілий
 У кафе зайшов чоловік у білому халаті, зі стетоскопом на шиї.|Ким, найімовірніше, працює чоловік?|лікарем|кухарем;водієм
 Попри втому, Ліна дописала реферат до ранку.|Яку рису Ліни видно з тексту?|наполегливість|лінощі;байдужість
@@ -709,11 +587,62 @@ read3:`Олег зайшов до класу мокрий, з парасольк
 Влад приніс на урок мапу, компас і бінокль.|Про що, найімовірніше, урок?|про подорожі|про музику;про кулінарію
 Сніговик у дворі почав танути, а з дахів закрапало.|Що відбувається?|потеплішало|похолодало;настала ніч
 Христя виграла олімпіаду, але першим ділом подякувала своїй учительці.|Яка Христя?|вдячна|заздрісна;байдужа
-Мама повернулася з базару з повним кошиком кавунів і динь.|Яка, найімовірніше, пора року?|кінець літа|середина зими;рання весна`,
-// слово|значення|регіон (6–8 кл.)
-dial:`бараболя|картопля|Галичина
+Мама повернулася з базару з повним кошиком кавунів і динь.|Яка, найімовірніше, пора року?|кінець літа|середина зими;рання весна`},
+str:{n:'Наголос',i:'🔊',t:'str',s:'Де падає наголос',d:`
+тОрти
+горОх
+ґУдзик
+дОнька
+дочкА
+вЕчір
+кОлесо
+фартУх
+одинАдцять
+чотирнАдцять
+квартАл
+портфЕль
+шофЕр
+цемЕнт
+договІр
+каталОг
+кУхонний
+сантимЕтр
+завдАння
+читАння
+пОмилка
+листопАд
+зрУчний
+дрІжджі
+вИпадок`},
+spell:{n:'Пишемо правильно',i:'📝',t:'two',s:'Апостроф, ь, спрощення, подовження',d:`
+п’ятниця|пятниця
+торф’яний|торфяний
+черв’як|червяк
+інтерв’ю|інтервю
+п’єса|пєса
+кур’єр|курєр
+свято|св’ято
+цвях|цв’ях
+морквяний|моркв’яний
+рюкзак|р’юкзак
+бюро|б’юро
+пюре|п’юре
+тьмяний|тьм’яний
+пісня|пісьня
+кінчик|кіньчик
+різьба|різба
+козацький|козацкий
+близько|близко
+знання|знаня
+узбережжя|узбережя
+обличчя|обличя
+щасливий|щастливий
+чесний|честний
+радісний|радістний
+тижневий|тиждневий`},
+dial:{n:'Говірки України',i:'🗺️',t:'dial',s:'Слова з різних куточків',d:`
+бараболя|картопля|Галичина
 ґазда|господар|Карпати
-ґаздиня|господиня|Карпати
 файний|гарний|Галичина
 фест|дуже|Галичина
 дзиґар|годинник|Галичина
@@ -721,10 +650,7 @@ dial:`бараболя|картопля|Галичина
 филижанка|чашка|Галичина
 пательня|сковорідка|Галичина
 шпацірувати|прогулюватися|Галичина
-кнайпа|невеликий ресторан, кав’ярня|Галичина
-ґрис|манна крупа|Галичина
 колєжанка|подруга|Галичина
-баняк|каструля|Галичина
 вуйко|дядько (брат мами)|Галичина
 стрийко|дядько (брат тата)|Галичина
 ґринджоли|санчата|Галичина
@@ -733,90 +659,22 @@ dial:`бараболя|картопля|Галичина
 плай|гірська стежка|Карпати
 легінь|парубок|Карпати
 бринза|овечий сир|Карпати
-кептар|безрукавка з овечої шкіри|Карпати
 трембіта|гуцульський духовий інструмент|Карпати
 ліжник|вовняна ковдра|Гуцульщина
 кресаня|гуцульський капелюх|Гуцульщина
-черес|широкий шкіряний пояс|Гуцульщина
-бануш|страва з кукурудзяної крупи|Гуцульщина
 мамалиґа|кукурудзяна каша|Буковина
 пуйка|індичка|Закарпаття
-бетег|хворий|Закарпаття
 синенькі|баклажани|Південь і схід
-жерделя|абрикоса|Південь
-ненька|мати|уся Україна
-вирій|теплий край, куди відлітають птахи|уся Україна
-горнятко|чашка, кухлик|уся Україна
-допіру|щойно|уся Україна
-чимчикувати|швидко йти дрібними кроками|уся Україна
-кручина|тяжкий смуток|уся Україна
-небокрай|обрій|уся Україна
-леліяти|ніжно плекати|уся Україна
-жура|смуток|уся Україна
-достеменно|точно, напевно|уся Україна
-ґелґотати|швидко й невиразно говорити|уся Україна
-неозорий|безмежний, безкраїй|уся Україна
-небозвід|небесне склепіння|уся Україна
-пересторога|застереження|уся Україна
-вельми|дуже|уся Україна
-ґречний|ввічливий|уся Україна
-вгамувати|заспокоїти|уся Україна
-хурделиця|завірюха|уся Україна`,
-// як не варто|як краще (7–8 кл.)
-say:`приймати участь|брати участь
-на протязі дня|протягом дня
-слідуючий|наступний
-міроприємство|захід
-вірна відповідь|правильна відповідь
-кажеться|здається
-співпадати|збігатися
-включити світло|увімкнути світло
-получити|отримати
-приводити приклад|наводити приклад
-оточуюче середовище|довкілля
-заключити договір|укласти договір
-більш краще|краще
-хворіти за команду|вболівати за команду
-заніматися спортом|займатися спортом
-самий кращий|найкращий
-більш вищий|вищий
-вибачаюсь|вибачте
-Скільки годин?|Котра година?
-Ось ваша здача|Ось ваша решта
-кидатися в очі|впадати в око
-приходити в голову|спадати на думку
-робити вигляд|удавати
-займати перше місце|посідати перше місце
-задавати питання|ставити запитання
-слідкувати за новинами|стежити за новинами
-відмітити свято|відзначити свято
-підводити підсумки|підбивати підсумки
-приводити в порядок|наводити лад
-мова йде про|ідеться про
-Пішли додому!|Ходімо додому!
-Давайте пограємо!|Пограймо!
-З наступаючим святом!|З прийдешнім святом!
-скоріш за все|найімовірніше
-біля десяти учнів|близько десяти учнів
-Він старше мене|Він старший за мене
-найбільш цікавий|найцікавіший
-говорити на українській|говорити українською
-іти по вулиці|іти вулицею
-дякую вас|дякую вам
-вибачте мене|вибачте мені`,
-// сленг|українські відповідники через «;» (7–9 кл.)
-slang:`вайб|настрій;атмосфера
+жерделя|абрикоса|Південь`},
+slang:{n:'Замість сленгу',i:'💬',t:'slang',s:'Українські відповідники',d:`
+вайб|настрій;атмосфера
 фейл|провал;невдача
 чілити|відпочивати;розслаблятися
 паті|вечірка
-геймер|гравець
-фанат|шанувальник
-гаджет|пристрій
 лук|вигляд;образ
 фішка|особливість;родзинка
 баг|помилка;вада
 кринж|ніяковість;збентеження
-треш|маячня;дичина
 хайп|ажіотаж;галас
 дедлайн|крайній строк;кінцевий термін
 флекс|хизування;показуха
@@ -824,181 +682,51 @@ slang:`вайб|настрій;атмосфера
 лузер|невдаха
 стрім|трансляція
 шерити|ділитися;поширювати
-реліз|випуск
-краш|симпатія
 рандомний|випадковий
-ізі|легко
 хейтер|ненависник;недоброзичливець
 фідбек|відгук;зворотний зв’язок
 лайфхак|хитрість;підказка
-мейнстрим|панівна течія
-апгрейд|поліпшення
-апдейт|оновлення
-задонатити|пожертвувати
-донат|пожертва
 контент|вміст;наповнення
 скрін|знімок екрана
-фрік|дивак
-інсайт|раптове розуміння;осяяння
-імпакт|вплив
 тренд|тенденція;течія
-перформанс|виступ
-рев’ю|огляд;рецензія
-окей|гаразд
-сорі|вибач
 лайк|вподобайка
 юзер|користувач
-юзати|використовувати
-пост|допис
-фоловер|підписник
-фейк|вигадка;підробка
-стікер|наліпка
-івент|подія;захід
-кейс|випадок
-пруф|доказ
-войс|голосове повідомлення
-скіпнути|пропустити
-чекнути|перевірити
-лагати|гальмувати
-агритися|сердитися
-рофл|жарт
-шопінг|покупки
-бро|друже`,
-// твердження|0 = факт, 1 = думка|пояснення (необов’язково) (7–9 кл., критичне читання)
-fact:`Київ — столиця України.|0
+фейк|вигадка;підробка`},
+fact:{n:'Факт чи думка?',i:'🧐',t:'fact',s:'Критичне читання',d:`
+Київ — столиця України.|0
 Київ — найгарніше місто у світі.|1
 За нормального атмосферного тиску вода кипить при 100 °C.|0
 Математика — найнудніший предмет.|1
-У тижні сім днів.|0
 Літо — найкраща пора року.|1
 Говерла — найвища гора України.|0
 Борщ смачніший за вареники.|1
 Тарас Шевченко народився 1814 року.|0
-Футбол — найцікавіша гра у світі.|1
 Земля обертається навколо Сонця.|0
 Цей фільм варто подивитися кожному.|1
-Українська абетка має 33 літери.|0
 Паперові книжки читати приємніше, ніж електронні.|1
 Чорне море омиває південь України.|0
-Відпочинок у горах кращий, ніж на морі.|1
-Сонце — це зоря.|0
 Коти розумніші за собак.|1
-Рослинам для фотосинтезу потрібне світло.|0
-Цей смартфон — найкращий вибір для кожного школяра.|1|Це рекламна оцінка, а не факт.
 У високосному році 366 днів.|0
-Цей мультфільм надто дитячий для підлітків.|1
-У тілі дорослої людини 206 кісток.|0
+Цей смартфон — найкращий вибір для кожного школяра.|1|Це рекламна оцінка, а не факт.
 Шоколадне морозиво смачніше за ванільне.|1
-Літні Олімпійські ігри проводять раз на чотири роки.|0
-Найкращий спосіб вивчити мову — читати книжки.|1
 Леся Українка написала драму «Лісова пісня».|0
 Ранкові уроки найважчі.|1
 Бджоли запилюють рослини.|0
-Ця пісня — справжній хіт літа.|1
 Усі експерти погоджуються, що ці кросівки найкращі.|1|Посилання на «усіх експертів» не робить оцінку фактом.
-Озеро Світязь — одне з найглибших озер України.|0
-Гуцульщина — найкрасивіший край.|1
-Чиста вода замерзає при 0 °C.|0
 Шкільна форма — це незручно.|1
 Дніпро — найдовша річка, що тече територією України.|0
 Ця книжка змінить твоє життя!|1|Гучна обіцянка — це оцінка, а не факт.
 Іван Котляревський — автор «Енеїди».|0
-Перерви між уроками надто короткі.|1
-Слон — найбільша сухопутна тварина.|0`,
-// твердження|0 = правда, 1 = міф|пояснення (8–10 кл.)
-myth:`В українській мові сім відмінків.|0|Так, їх сім, і сьомий — кличний.
-День української писемності та мови — 9 листопада.|0|Так, у день пам’яті Нестора-Літописця.
-Назви мов пишемо з великої літери.|1|Міф: назви мов пишемо з малої: українська мова.
-Слово «кава» — чоловічого роду.|1|Міф: кава — жіночого роду: гаряча кава.
-Українська мова — «третя у світі за милозвучністю» за офіційним рейтингом.|1|Міф: документальних підтверджень такого рейтингу немає.
-Державною мовою в Україні є українська — так записано в Конституції.|0|Так, у статті 10 Конституції.
-Апостроф — це літера.|1|Міф: апостроф — це знак, а не літера.
-В українській мові є три наріччя.|0|Так: північне, південно-західне й південно-східне.
-Звертаючись до Києва, можна сказати: «Києве мій!»|0|Так, це кличний відмінок.
-Слово «двері» вживається лише в множині.|0|Так, це слово має тільки форму множини.
-Кличну форму мають лише імена людей.|1|Міф: «земле», «друже», «Києве» — теж кличний відмінок.
-Літеру «ґ» вилучили з абетки 1933 року, а повернули 1990-го.|0|Так, саме в ці роки.
-Перші частини «Енеїди» Котляревського надрукували без відома автора.|0|Так, 1798 року їх видав Максим Парпура.
-Чинну редакцію українського правопису ухвалили 2019 року.|0|Так, вона діє від 2019 року.
-Українською розмовляють лише в межах України.|1|Міф: нею говорять і в діаспорі в багатьох країнах.
-Слово «Україна» вперше згадано в літописі під 1187 роком.|0|Так, в Іпатіївському літописі.
-Основою літературної української мови є середньонаддніпрянські говірки.|0|Так, їх узято за основу.
-В українській мові є лише одна форма майбутнього часу.|1|Міф: можна сказати і «писатиму», і «буду писати».
-Звуки [г] і [ґ] — різні.|0|Так, і позначаємо їх різними літерами: г і ґ.
-Літера «щ» позначає два звуки.|0|Так: [шч].
-Літери «я», «ю», «є» завжди позначають два звуки.|1|Міф: після приголосних вони позначають один звук і м’якість, як у слові «люди».
-У слові «їжак» чотири літери, але п’ять звуків.|0|Так: [йіжак].
-Слово «пальто» змінюється за відмінками.|1|Міф: «пальто» не змінюється: у пальто, без пальто.
-Слово «кенгуру» не змінюється за відмінками.|0|Так: побачили кенгуру, говоримо про кенгуру.
-Слово «біль» — жіночого роду.|1|Міф: «біль» — чоловічого роду: сильний біль.
-В українській мові «собака» — чоловічого роду.|0|Так: «мій собака», «злий собака».
-Українська — одна з офіційних мов ООН.|1|Міф: офіційних мов ООН шість, української серед них немає.
-Леся Українка — справжнє ім’я поетеси.|1|Міф: її звали Лариса Косач.
-Тарас Шевченко був не лише поетом, а й художником.|0|Так, 1860 року він отримав звання академіка гравюри.
-Звертання в реченні виділяємо комами.|0|Так: «Друже, ходімо!»
-Літера «ь» не позначає звука.|0|Так, вона позначає м’якість попереднього приголосного.
-В абетці літера «ґ» стоїть одразу після «г».|0|Так: …в, г, ґ, д…
-Займенник «Ви» в листі до однієї людини можна писати з великої літери.|0|Так, на знак особливої поваги.
-Чоловічі прізвища на -ко змінюються за відмінками.|0|Так: Шевченка, Шевченкові.
-Жіночі прізвища на -ко змінюються за відмінками.|1|Міф: «з Оленою Шевченко», «Олені Шевченко».
-Пересопницьке Євангеліє — друкована книга.|1|Міф: його переписали від руки в 1556–1561 роках.
-На Пересопницькому Євангелії складають присягу президенти України.|0|Так, це одна з головних пам’яток нашої мови.
-Слова гімну України написав Павло Чубинський.|0|Так, а музику — Михайло Вербицький.
-Музику гімну України написав Микола Лисенко.|1|Міф: її автор — Михайло Вербицький.
-Мелодія «Щедрика» Миколи Леонтовича стала основою пісні «Carol of the Bells».|0|Так, цю мелодію знає весь світ.
-Закон «Про забезпечення функціонування української мови як державної» ухвалили 2019 року.|0|Так, у квітні 2019 року.
-Збірку «Сад божественних пісень» уклав Григорій Сковорода.|0|Так, це його відома збірка.
-Повість «Тіні забутих предків» написав Михайло Коцюбинський.|0|Так, її написано під враженням від Гуцульщини.
-Назви всіх десятків від 20 до 90 закінчуються на «-дцять» або «-десят».|1|Міф: є «сорок» і «дев’яносто».`,
-// вислів|значення (9–11 кл.)
-cry:`ні пава ні ґава|ані те, ані се; непримітна людина
-притча во язицех|предмет загальних розмов
-дамоклів меч|постійна небезпека
-сізіфова праця|важка, марна, нескінченна робота
-ахіллесова п’ята|слабке, вразливе місце
-авгієві стайні|страшний безлад, занедбана справа
-переливати з пустого в порожнє|вести марну розмову
-тягти кота за хвіст|зволікати
-яблуку ніде впасти|дуже людно
-пальцем у небо влучити|помилитися, сказати невлучно
-прокрустове ложе|мірка, під яку силоміць підганяють
-троянський кінь|підступний дарунок, прихована загроза
-нитка Аріадни|те, що допомагає знайти вихід
-яблуко розбрату|причина сварки
-танталові муки|страждання від близької, але недосяжної мети
-перейти Рубікон|ухвалити безповоротне рішення
-піррова перемога|перемога, що коштувала надто дорого
-гордіїв вузол|дуже заплутана справа
-лебедина пісня|останній яскравий вияв таланту
-буря в склянці води|велике хвилювання через дрібницю
-голос волаючого в пустелі|марний заклик, якого ніхто не слухає
-манна небесна|несподівана допомога
-наріжний камінь|основа чогось
-вавилонське стовпотворіння|безлад, плутанина
-альфа й омега|початок і кінець, суть
-панургове стадо|ті, хто сліпо наслідує інших
-езопова мова|іносказання, мова натяків
-олімпійський спокій|незворушність
-між Сциллою і Харибдою|між двома небезпеками
-відкрити Америку|оголосити давно відоме як нове`,
-// правильно|неправильно (9–11 кл., чинний правопис)
-nspell:`на жаль|нажаль
+Слон — найбільша сухопутна тварина.|0`},
+adv:{n:'Разом, окремо чи з дефісом',i:'✍️',t:'two',s:'Прислівники, частки, займенники',d:`
+на жаль|нажаль
 напевно|на певно
-внаслідок|в наслідок
 по-перше|по перше
-пів яблука|пів-яблука
-пів-Києва|пів Києва
-півострів|пів острів
 щодня|що дня
-будь-який|будьякий
 все-таки|все таки
-наприклад|на приклад
 по-новому|по новому
 якнайкраще|як найкраще
 абияк|аби як
-хтозна-що|хтозна що
-казна-де|казна де
-будь-що|будь що
 де-не-де|де не де
 віч-на-віч|віч на віч
 пліч-о-пліч|пліч о пліч
@@ -1009,145 +737,93 @@ nspell:`на жаль|нажаль
 водночас|водно час
 щонайменше|що найменше
 врешті-решт|врешті решт
-віцепрезидент|віце-президент
-медіапростір|медіа-простір
-пресконференція|прес-конференція
-мініфутбол|міні-футбол
-екс-чемпіон|ексчемпіон
-проєкт|проект
-фотокартка|фото-картка
-відеогра|відео-гра
-хто-небудь|хто небудь
+внаслідок|в наслідок
 будь ласка|будь-ласка
-ні з ким|ні-з-ким`,
-// слово з наголосом (10–11 кл., формат НМТ: 1 правильне з 4)
-nstr:`абИякий
-аркУш
-бЕшкет
-бюлетЕнь
-вимОга
-вирАзний
-вИтрата
-гуртОжиток
-дИвлячись
-дровА
-кОлія
-кропивА
-кУрятина
-мерЕжа
-ненАвидіти
-обіцЯнка
-обрУч
-олЕнячий
-отАман
-перЕкис
-перелЯк
-рукОпис
-симетрІя
-асиметрІя
-фенОмен
-фОльга
-фортЕця
-цЕнтнер
-чорнОслив
-щавЕль
-алфавІт
-новИна
-ознАка
-жалюзІ
-олІя
-бАтьківський
-індУстрія
-металУргія
-літОпис
-кінчИк
-партЕр
-стАтуя
-вантажІвка
-гастронОмія
-зубОжіння
-нАчинка
-посерЕдині
-фАховий
-решетО
-щЕлепа
-грАблі
-текстовИй
-течіЯ
-піалА
-соломИнка
-уподОбання
-тамтЕшній`,
-// p|речення з «…»|правильне|паронім|пояснення  або  k|калька|норма (10–11 кл.)
-nlex:`p|Відкрити … рахунок у банку|особовий|особистий|Особовий — пов’язаний з особою в документах; особистий — власний, приватний.
-p|Це моя … думка|особиста|особова|Особистий — власний, приватний; особовий — пов’язаний з особою в документах.
-p|Дуже … метод навчання|ефективний|ефектний|Ефективний — який дає результат; ефектний — який справляє враження.
-p|На ній була … сукня|ефектна|ефективна|Ефектний — який справляє враження; ефективний — який дає результат.
-p|Активна … позиція|громадянська|громадська|Громадянський — пов’язаний із громадянином; громадський — спільний, для громади.
-p|Міський … транспорт|громадський|громадянський|Громадський — спільний, для громади; громадянський — пов’язаний із громадянином.
-p|Виборча …|дільниця|ділянка|Дільниця — частина території чи установа (виборча, лікарська); ділянка — шматок землі.
-p|Земельна …|ділянка|дільниця|Ділянка — шматок землі; дільниця — частина території чи установа.
-p|Рекламна …|кампанія|компанія|Кампанія — низка заходів; компанія — гурт людей або фірма.
-p|Весела … друзів|компанія|кампанія|Компанія — гурт людей або фірма; кампанія — низка заходів.
-p|… до басейну на місяць|абонемент|абонент|Абонемент — документ на право користування; абонент — той, хто користується послугою.
-p|… мобільного зв’язку|абонент|абонемент|Абонент — той, хто користується послугою; абонемент — документ на право користування.
-p|У письменника багата …|уява|уявлення|Уява — здатність фантазувати; уявлення — знання, образ чогось.
-p|Я маю … про цю тему|уявлення|уяву|Уявлення — знання, образ чогось; уява — здатність фантазувати.
-p|… господиня|ощадлива|ощадна|Ощадливий — який дбайливо витрачає; ощадний — призначений для заощаджень.
-p|… банк|ощадний|ощадливий|Ощадний — призначений для заощаджень; ощадливий — який дбайливо витрачає.
-p|… криза|економічна|економна|Економічний — пов’язаний з економікою; економний — ощадливий.
-p|… спосіб прання|економний|економічний|Економний — ощадливий; економічний — пов’язаний з економікою.
-p|… колектив|дружний|дружній|Дружний — згуртований; дружній — приязний до когось.
-p|… візит|дружній|дружний|Дружній — приязний до когось; дружний — згуртований.
-p|… реформа|земельна|земна|Земельний — про землю як угіддя; земний — про планету чи світ людей.
-p|… куля|земна|земельна|Земний — про планету чи світ людей; земельний — про землю як угіддя.
-p|… вчинок|людяний|людський|Людяний — чуйний, добрий; людський — властивий людині.
-p|… голос|людський|людяний|Людський — властивий людині; людяний — чуйний, добрий.
-p|… агентство|інформаційне|інформативне|Інформаційний — пов’язаний з інформацією; інформативний — змістовний.
-p|Дуже … доповідь|інформативна|інформаційна|Інформативний — змістовний; інформаційний — пов’язаний з інформацією.
-p|… талон|гарантійний|гарантований|Гарантійний — який дає гарантію; гарантований — забезпечений.
-p|… результат|гарантований|гарантійний|Гарантований — забезпечений; гарантійний — який дає гарантію.
-p|… людина|освічена|освітлена|Освічений — який має освіту; освітлений — залитий світлом.
-p|… кімната|освітлена|освічена|Освітлений — залитий світлом; освічений — який має освіту.
-p|… вода|питна|питальна|Питний — для пиття; питальний — який містить питання.
-p|… речення|питальне|питне|Питальний — який містить питання; питний — для пиття.
-p|… співрозмовник|тактовний|тактичний|Тактовний — делікатний; тактичний — пов’язаний з тактикою.
-p|… навчання військових|тактичне|тактовне|Тактичний — пов’язаний з тактикою; тактовний — делікатний.
-p|… заклад освіти|дошкільний|дошкульний|Дошкільний — для дітей до школи; дошкульний — болючий, ущипливий.
-p|… мороз|дошкульний|дошкільний|Дошкульний — болючий, ущипливий; дошкільний — для дітей до школи.
-p|… мешканці краю|корінні|кореневі|Корінний — споконвічний, основний; кореневий — пов’язаний із коренем.
-p|… система рослини|коренева|корінна|Кореневий — пов’язаний із коренем; корінний — споконвічний, основний.
-p|… конкурсу отримав диплом|Дипломант|Дипломат|Дипломант — нагороджений дипломом; дипломат — посадовець у зовнішніх справах.
-p|Посол — це …|дипломат|дипломант|Дипломат — посадовець у зовнішніх справах; дипломант — нагороджений дипломом.
-p|… — той, хто отримує лист|Адресат|Адресант|Адресат — отримувач; адресант — відправник.
-k|згідно наказу|згідно з наказом
-k|в залежності від|залежно від
-k|Я рахую, що це так|Я вважаю, що це так
-k|це відноситься до справи|це стосується справи
-k|приймаючи до уваги|зважаючи на
-k|дякуючи вам|завдяки вам
-k|по відношенню до|щодо
-k|у відповідності з|відповідно до
-k|пред’являти вимоги|висувати вимоги
-k|задовільнити|задовольнити
-k|виключення з правила|виняток із правила
-k|являтися головою|бути головою
-k|приймати міри|уживати заходів
-k|бувший учень|колишній учень
-k|на рахунок цього|щодо цього
-k|по крайній мірі|принаймні
-k|в кінці кінців|зрештою
-k|прийти до висновку|дійти висновку
-k|підняти питання|порушити питання
-k|вирішити задачу|розв’язати задачу
-k|область знань|галузь знань
-k|учбовий заклад|навчальний заклад
-k|прийняти до відома|взяти до відома
-k|на сьогоднішній день|сьогодні
-k|при умові|за умови
-k|любий із варіантів|будь-який із варіантів`,
-// текст|питання|правильна відповідь|хибні через «;» (10–11 кл., критичне читання у форматі НМТ)
-read5:`«Наш ліцей — найкращий у місті, адже так кажуть усі наші випускники».|Що не так з аргументом?|думку обґрунтовано лише відгуками зацікавлених людей|автор наводить незалежні дані;автор нападає на опонента;аргумент бездоганний
+будь-який|будьякий
+хто-небудь|хто небудь
+казна-де|казна де
+ні з ким|ні-з-ким
+пів Києва|пів-Києва`},
+calq:{n:'Кальки й норма',i:'⚖️',t:'say',s:'Як сказати правильно',d:`
+згідно наказу|згідно з наказом
+в залежності від|залежно від
+Я рахую, що це так|Я вважаю, що це так
+це відноситься до справи|це стосується справи
+приймаючи до уваги|зважаючи на
+дякуючи вам|завдяки вам
+по відношенню до|щодо
+у відповідності з|відповідно до
+пред’являти вимоги|висувати вимоги
+виключення з правила|виняток із правила
+являтися головою|бути головою
+приймати міри|уживати заходів
+бувший учень|колишній учень
+на рахунок цього|щодо цього
+по крайній мірі|принаймні
+в кінці кінців|зрештою
+прийти до висновку|дійти висновку
+підняти питання|порушити питання
+вирішити задачу|розв’язати задачу
+область знань|галузь знань
+учбовий заклад|навчальний заклад
+прийняти до відома|взяти до відома
+на сьогоднішній день|сьогодні
+при умові|за умови
+любий із варіантів|будь-який із варіантів`},
+myth:{n:'Правда чи міф',i:'🤔',t:'myth',s:'Факти про мову',d:`
+В українській мові сім відмінків.|0|Так, їх сім, і сьомий — кличний.
+День української писемності та мови — 9 листопада.|0|Так, у день пам’яті Нестора-Літописця.
+Назви мов пишемо з великої літери.|1|Міф: назви мов пишемо з малої: українська мова.
+Слово «кава» — чоловічого роду.|1|Міф: кава — жіночого роду: гаряча кава.
+Українська мова — «третя у світі за милозвучністю» за офіційним рейтингом.|1|Міф: документальних підтверджень такого рейтингу немає.
+Апостроф — це літера.|1|Міф: апостроф — це знак, а не літера.
+В українській мові є три наріччя.|0|Так: північне, південно-західне й південно-східне.
+Слово «двері» вживається лише в множині.|0|Так, це слово має тільки форму множини.
+Кличну форму мають лише імена людей.|1|Міф: «земле», «друже», «Києве» — теж кличний відмінок.
+Літеру «ґ» вилучили з абетки 1933 року, а повернули 1990-го.|0|Так, саме в ці роки.
+Перші частини «Енеїди» Котляревського надрукували без відома автора.|0|Так, 1798 року їх видав Максим Парпура.
+Чинну редакцію українського правопису ухвалили 2019 року.|0|Так, вона діє від 2019 року.
+Слово «Україна» вперше згадано в літописі під 1187 роком.|0|Так, в Іпатіївському літописі.
+В українській мові є лише одна форма майбутнього часу.|1|Міф: можна сказати і «писатиму», і «буду писати».
+Літери «я», «ю», «є» завжди позначають два звуки.|1|Міф: після приголосних вони позначають один звук і м’якість, як у слові «люди».
+У слові «їжак» чотири літери, але п’ять звуків.|0|Так: [йіжак].
+Слово «пальто» змінюється за відмінками.|1|Міф: «пальто» не змінюється: у пальто, без пальто.
+Слово «біль» — жіночого роду.|1|Міф: «біль» — чоловічого роду: сильний біль.
+В українській мові «собака» — чоловічого роду.|0|Так: «мій собака», «злий собака».
+Українська — одна з офіційних мов ООН.|1|Міф: офіційних мов ООН шість, української серед них немає.
+Леся Українка — справжнє ім’я поетеси.|1|Міф: її звали Лариса Косач.
+Тарас Шевченко був не лише поетом, а й художником.|0|Так, 1860 року він отримав звання академіка гравюри.
+Пересопницьке Євангеліє — друкована книга.|1|Міф: його переписали від руки в 1556–1561 роках.
+Музику гімну України написав Микола Лисенко.|1|Міф: її автор — Михайло Вербицький.
+Мелодія «Щедрика» Миколи Леонтовича стала основою пісні «Carol of the Bells».|0|Так, цю мелодію знає весь світ.`},
+cry:{n:'Крилаті вислови',i:'🏛️',t:'mean',s:'Міфи, історія, книжки',d:`
+дамоклів меч|постійна небезпека
+сізіфова праця|важка, марна, нескінченна робота
+ахіллесова п’ята|слабке, вразливе місце
+авгієві стайні|страшний безлад, занедбана справа
+переливати з пустого в порожнє|вести марну розмову
+тягти кота за хвіст|зволікати
+яблуку ніде впасти|дуже людно
+прокрустове ложе|мірка, під яку силоміць підганяють
+троянський кінь|підступний дарунок, прихована загроза
+нитка Аріадни|те, що допомагає знайти вихід
+яблуко розбрату|причина сварки
+танталові муки|страждання від близької, але недосяжної мети
+перейти Рубікон|ухвалити безповоротне рішення
+піррова перемога|перемога, що коштувала надто дорого
+гордіїв вузол|дуже заплутана справа
+лебедина пісня|останній яскравий вияв таланту
+буря в склянці води|велике хвилювання через дрібницю
+манна небесна|несподівана допомога
+наріжний камінь|основа чогось
+вавилонське стовпотворіння|безлад, плутанина
+альфа й омега|початок і кінець, суть
+езопова мова|іносказання, мова натяків
+олімпійський спокій|незворушність
+між Сциллою і Харибдою|між двома небезпеками
+відкрити Америку|оголосити давно відоме як нове`},
+read5:{n:'Критичне читання',i:'🧠',t:'read',s:'Аргументи, хиби, засоби',d:`
+«Наш ліцей — найкращий у місті, адже так кажуть усі наші випускники».|Що не так з аргументом?|думку обґрунтовано лише відгуками зацікавлених людей|автор наводить незалежні дані;автор нападає на опонента;аргумент бездоганний
 «Після того як у школі встановили нові вікна, оцінки з математики зросли. Отже, нові вікна покращують знання з математики».|Яка хиба в міркуванні?|події, що йдуть одна за одною, видано за причину й наслідок|напад на особу;посилання на авторитет;висновок обґрунтований
 «Не слухайте Максима про екологію — він навіть сміття не завжди сортує».|Який прийом використано?|критику особи замість аргументів|посилання на дослідження;порівняння;обґрунтований висновок
 «Або ти з нами в гуртку робототехніки, або тобі байдуже до майбутнього».|Яка хиба в міркуванні?|вибір штучно обмежено двома варіантами|напад на особу;посилання на авторитет;висновок логічний
@@ -1171,32 +847,65 @@ read5:`«Наш ліцей — найкращий у місті, адже так
 «Ну звісно, найкраща ідея — вийти в шторм на човні!»|Який засіб використав автор?|іронію|похвалу;гіперболу;порівняння
 «Місто прокидалося, протираючи очі вікон».|Який художній засіб тут головний?|уособлення|порівняння;гіпербола;антитеза
 «Він був сильний, як дуб».|Який художній засіб тут використано?|порівняння|уособлення;епітет;гіпербола
-«Я тобі вже тисячу разів казала!»|Який художній засіб тут використано?|гіпербола|літота;порівняння;уособлення`};
-const G=[
-{id:'word',n:'Склади слово',i:'🧩',g:[1,2],s:'Збери слово з літер'},
-{id:'voice',n:'Хто як говорить?',i:'🐾',g:[1,2],s:'Тварини та їхні голоси'},
-{id:'little',n:'Маленьке й лагідне',i:'🧸',g:[1,2],s:'Лагідні слова й малята'},
-{id:'read1',n:'Прочитай і знайди',i:'📖',g:[1,2],s:'Читаємо коротке речення'},
-{id:'anto',n:'Навпаки',i:'🔄',g:[2,4],s:'Слова-протилежності'},
-{id:'root',n:'Слова-родичі',i:'🌳',g:[3,4],s:'Знайди спільний корінь'},
-{id:'read2',n:'Уважне читання',i:'🔍',g:[3,4],s:'Хто, де, чому?'},
-{id:'voc',n:'Поклич!',i:'📣',g:[3,5],s:'Кличний відмінок'},
-{id:'str',n:'Наголос',i:'🔊',g:[5,6],s:'Де падає наголос'},
-{id:'spell',n:'Пишемо правильно',i:'📝',g:[5,6],s:'Апостроф, ь, подвоєння'},
-{id:'read3',n:'Читаємо між рядками',i:'🕵️',g:[5,6],s:'Що не сказано прямо',t:90},
-{id:'phr',n:'Фразеологізми',i:'🎭',g:[5,7],s:'Що означає вислів'},
-{id:'dial',n:'Говірки й рідкісні слова',i:'🗺️',g:[6,8],s:'Слова з усієї України'},
-{id:'say',n:'Говоримо гарно',i:'🗣️',g:[7,8],s:'Влучні слова без помилок'},
-{id:'slang',n:'Замість сленгу',i:'💬',g:[7,9],s:'Українські відповідники'},
-{id:'fact',n:'Факт чи думка?',i:'🧐',g:[7,9],s:'Критичне читання'},
-{id:'myth',n:'Правда чи міф',i:'🤔',g:[8,10],s:'Факти про мову'},
-{id:'cry',n:'Крилаті вислови',i:'🏛️',g:[9,11],s:'Міфи, історія, книжки'},
-{id:'nspell',n:'НМТ: правопис',i:'✍️',g:[9,11],s:'Разом, окремо чи з дефісом'},
-{id:'nstr',n:'НМТ: наголоси',i:'🎯',g:[10,11],s:'Одне правильне з чотирьох'},
-{id:'nlex',n:'НМТ: лексичні норми',i:'⚖️',g:[10,11],s:'Пароніми й кальки'},
-{id:'read5',n:'Критичне читання',i:'🧠',g:[10,11],s:'Аргументи, хиби, засоби',t:120}];
-const GM={};G.forEach(g=>{g.it=D[g.id].trim().split('\n').map(l=>l.split('|'));GM[g.id]=g});
-// ---- Слово години: щогодини з 7:00 до 20:00 нове слово; 84 слова = 6 днів × 14 годин без повторів
+«Я тобі вже тисячу разів казала!»|Який художній засіб тут використано?|гіпербола|літота;порівняння;уособлення`},
+par:{n:'Пароніми',i:'👯',t:'par',s:'Схожі слова — різний зміст',d:`
+Відкрити … рахунок у банку|особовий|особистий|Особовий — пов’язаний з особою в документах; особистий — власний, приватний.
+Це моя … думка|особиста|особова|Особистий — власний, приватний; особовий — пов’язаний з особою в документах.
+Дуже … метод навчання|ефективний|ефектний|Ефективний — який дає результат; ефектний — який справляє враження.
+На ній була … сукня|ефектна|ефективна|Ефектний — який справляє враження; ефективний — який дає результат.
+Активна … позиція|громадянська|громадська|Громадянський — пов’язаний із громадянином; громадський — спільний, для громади.
+Міський … транспорт|громадський|громадянський|Громадський — спільний, для громади; громадянський — пов’язаний із громадянином.
+Виборча …|дільниця|ділянка|Дільниця — частина території чи установа (виборча, лікарська); ділянка — шматок землі.
+Земельна …|ділянка|дільниця|Ділянка — шматок землі; дільниця — частина території чи установа.
+Рекламна …|кампанія|компанія|Кампанія — низка заходів; компанія — гурт людей або фірма.
+Весела … друзів|компанія|кампанія|Компанія — гурт людей або фірма; кампанія — низка заходів.
+… до басейну на місяць|абонемент|абонент|Абонемент — документ на право користування; абонент — той, хто користується послугою.
+… мобільного зв’язку|абонент|абонемент|Абонент — той, хто користується послугою; абонемент — документ на право користування.
+У письменника багата …|уява|уявлення|Уява — здатність фантазувати; уявлення — знання, образ чогось.
+Я маю … про цю тему|уявлення|уяву|Уявлення — знання, образ чогось; уява — здатність фантазувати.
+… криза|економічна|економна|Економічний — пов’язаний з економікою; економний — ощадливий.
+… спосіб прання|економний|економічний|Економний — ощадливий; економічний — пов’язаний з економікою.
+… колектив|дружний|дружній|Дружний — згуртований; дружній — приязний до когось.
+… візит|дружній|дружний|Дружній — приязний до когось; дружний — згуртований.
+… людина|освічена|освітлена|Освічений — який має освіту; освітлений — залитий світлом.
+… кімната|освітлена|освічена|Освітлений — залитий світлом; освічений — який має освіту.
+… вода|питна|питальна|Питний — для пиття; питальний — який містить питання.
+… речення|питальне|питне|Питальний — який містить питання; питний — для пиття.
+… заклад освіти|дошкільний|дошкульний|Дошкільний — для дітей до школи; дошкульний — болючий, ущипливий.
+… мороз|дошкульний|дошкільний|Дошкульний — болючий, ущипливий; дошкільний — для дітей до школи.
+… — той, хто отримує лист|Адресат|Адресант|Адресат — отримувач; адресант — відправник.`},
+nstr:{n:'НМТ: наголоси',i:'🎯',t:'nstr',s:'Одне правильне з чотирьох',d:`
+абИякий
+аркУш
+бЕшкет
+бюлетЕнь
+вимОга
+вИтрата
+гуртОжиток
+дИвлячись
+кропивА
+кУрятина
+мерЕжа
+ненАвидіти
+обіцЯнка
+олЕнячий
+отАман
+перЕкис
+рукОпис
+симетрІя
+фенОмен
+фОльга
+цЕнтнер
+чорнОслив
+щавЕль
+алфавІт
+жалюзІ`}};
+for(const id in P){const g=P[id];g.id=id;g.it=g.d.trim().split('\n').map(l=>l.split('|'))}
+// Ігри кожного року навчання. Усі класи одного року мають однакові ігри. Ігри старших років можуть повторюватися.
+const GR={1:['first','syll','word1','odd'],2:['word2','alpha','voice','read1'],3:['anto','apos','read2','little'],4:['root','parts','anto','read2'],5:['voc','phr','say','read3'],6:['str','spell','dial','phr'],7:['slang','fact','dial','str'],8:['adv','calq','fact','myth'],9:['myth','cry','adv','read5'],10:['par','nstr','cry','read5'],11:['nstr','par','read5','calq']};
+const PT=10,MAX=gr=>GR[gr].reduce((s,id)=>s+P[id].it.length*PT,0);
+// ===================== СЛОВО ГОДИНИ =====================
+// Щогодини з 7:00 до 20:00 нове слово; 84 слова = 6 днів × 14 годин без повторів
 const WH=`маржинка|корівка, худобинка|Гуцульщина
 парадичка|помідор|Закарпаття
 тремпель|вішак для одягу|Центр і схід
@@ -1283,131 +992,160 @@ const WH=`маржинка|корівка, худобинка|Гуцульщин
 обіруч|обома руками|рідковживане`.trim().split('\n').map(l=>l.split('|'));
 const wh=()=>{const d=new Date(),h=Math.min(20,Math.max(7,d.getHours())),day=Math.floor((new Date(d.getFullYear(),d.getMonth(),d.getDate())-new Date(2026,0,1))/864e5);return WH[((day*14+h-7)%WH.length+WH.length)%WH.length]};
 const wodH=()=>{const w=wh();return`<span>Слово години</span><b>${w[0]}</b><em>${w[1]}</em><small>${w[2]=='рідковживане'?'✨ рідковживане слово':'📍 '+w[2]}</small>`};
-const COL=['#ffd9cc','#c8f0e3','#e2d9ff','#fff0a6'];
-const CL=[[1,'Вогники'],[1,'Серденька'],[1,'Зернята'],[2,'Іскри'],[2,'Дбайливі'],[2,'Промінці'],[3,'Завзяті'],[3,'Кмітливі'],[4,'Феніксі'],[4,'Відважні'],[4,'Винахідники'],[4,'Блискавки'],[5,'Зірочки'],[5,'Незламні'],[5,'Допитливі'],[6,'Алхіміки'],[6,'Едельвейси'],[6,'Енергійні'],[6,'Ентузіасти'],[7,'Скелелази'],[7,'Запальні'],[7,'Мрійники'],[8,'Науковці'],[8,'Левенята'],[9,'Супергерої'],[10,'Агенти'],[11,'Оптимісти']];
+// ===================== КЛАСИ (рік, назва, хеш пароля) =====================
+// Самих паролів у коді немає — лише хеші. Паролі — в окремому файлі в учителя.
+const CL=[[1,'Вогники','tnsfuowcn'],[1,'Зернятка','1ieio06lsan'],[1,'Серденька','1pp67f1hkro'],[2,'Дбайливі','irl0zf3h64'],[2,'Іскри','157u37u7rzg'],[2,'Промінці','1tj5ifp0x7o'],[3,'Завзяті','1vy4hg7b4eq'],[3,'Кмітливі','a045h94pd'],[4,'Блискавки','t17r4izw6u'],[4,'Винахідники','axl7lqckeo'],[4,'Відважні','2c7rw2hh4s3'],[4,'Фенікси','q3sch2sm9a'],[5,'Допитливі','1vxjht769fd'],[5,'Зірочки','282gi6t50if'],[5,'Незламні','2005sxulrm8'],[6,'Алхіміки','23i21qw940g'],[6,'Едельвейси','1zw2oteqym0'],[6,'Ентузіасти','22sk4ztulub'],[6,'Потужні','jtvmwgfxla'],[7,'Запальні','280uzmt7wj2'],[7,'Мрійники','2eskr3i9mms'],[7,'Скелелази','286ejp5c0go'],[8,'Левенята','iiaxpv1b3a'],[8,'Науковці','1rst4znvnvj'],[9,'Супергерої','vj44dtnvc1'],[10,'Агенти','fcqqwi2oty'],[11,'Оптимісти','38upv4863i']];
+const cyrb=(s,seed=0)=>{let h1=0xdeadbeef^seed,h2=0x41c6ce57^seed;for(let i=0,ch;i<s.length;i++){ch=s.charCodeAt(i);h1=Math.imul(h1^ch,2654435761);h2=Math.imul(h2^ch,1597334677)}h1=Math.imul(h1^(h1>>>16),2246822507);h1^=Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507);h2^=Math.imul(h1^(h1>>>13),3266489909);return(4294967296*(2097151&h2)+(h1>>>0)).toString(36)};
 const BN={1:'1–4 класи',2:'5–8 класи',3:'9–11 класи'},bd=g=>g<5?1:g<9?2:3;
-const END=new Date(2026,10,6,19,0,0);
-// Тема оформлення за замовчуванням (1–5); у адресі можна перевизначити: index.html?v=3
-const DV=14,QS=new URLSearchParams(location.search),DEMO=QS.has('demo'),VN=+(QS.get('v')||DV);document.body.className='v'+VN+(VN>5?' v1':'')+(VN>10?' v8':'');
-const S={mode:'1',band:1,cls:'',gr:1,game:'',cs:[]};if(DEMO)Object.assign(S,{band:2,cls:'12',game:'phr'});
+// Змагання триває до четверга, 5 листопада 2026 року, 19:00
+const END=new Date(2026,10,5,19,0,0);
+const S={mode:'1',band:1,cls:'',gr:1,game:'',cs:[]};
 const app=document.getElementById('app'),$=id=>document.getElementById(id);
-let T,TQ,P,Q,K,i,sc,st,nr,tm,DUR,lock,cur,opts,N,NM,SC,R,LK,A,PK,ST,FS,qt,B,done,fbT,CM,PZ=0,RUN=0,last=Date.now();
+let TQ,Q,K,i,sc,nr,lock,cur,opts,N,NM,SC,R,LK,A,PK,qt,B,done,fbT,CM,PZ=0,RUN=0,last=Date.now();
 const sh=a=>{a=a.slice();for(let k=a.length-1;k>0;k--){const j=Math.random()*(k+1)|0;[a[k],a[j]]=[a[j],a[k]]}return a};
 const un=(a,c,n)=>{const r=[];for(const x of sh(a))if(x!=c&&!r.includes(x)){r.push(x);if(r.length==n)break}return r};
-const O=(c,w)=>[[c,1],...w.map(x=>[x,0])],VW='аеєиіїоуюя',up=s=>s[0].toUpperCase()+s.slice(1);
+const O=(c,w)=>[[c,1],...w.map(x=>[x,0])],VW='аеєиіїоуюя',AB='АБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ',FL='АОУІМНТСЛКВДПР',up=s=>s[0].toUpperCase()+s.slice(1);
 // Наголос: велика літера — наголошений голосний. alt() переносить наголос на інший голосний.
 const ci=w=>[...w].findIndex(c=>c!=c.toLowerCase());
 const alt=(w,n)=>{const l=w.toLowerCase(),k=ci(w);return sh([...l].map((c,j)=>VW.includes(c)&&j!=k?j:-1).filter(j=>j>=0)).slice(0,n).map(j=>l.slice(0,j)+l[j].toUpperCase()+l.slice(j+1))};
-function mk(g,a){const r={g,pre:'',q:'',o:null,e:''},ot=(f,n)=>un(GM[g].it.filter(y=>y!==a).map(f),f(a),n);
-switch(g){
-case'word':{const w=[...a[1].toUpperCase()];let L=sh(w);for(let t=0;t<9&&L.join('')==w.join('');t++)L=sh(w);Object.assign(r,{q:`<span class=emo>${a[0]}</span>`,pre:a[2],w,L,e:`${a[0]} ${a[1].toUpperCase()}`});break}
+const syl=w=>[...w].filter(c=>VW.includes(c)).length,sk=n=>n==1?'склад':n<5?'склади':'складів';
+const PN={i:'іменник (хто? що?)',p:'прикметник (який?)',d:'дієслово (що робить?)'};
+// Генератор завдання з рядка набору
+function mk(g,a){const t=P[g].t,r={g,pre:'',q:'',o:null,e:''},ot=(f,n)=>un(P[g].it.filter(y=>y!==a).map(f),f(a),n);
+switch(t){
+case'b':{const w=[...a[1].toUpperCase()];let L=sh(w);for(let x=0;x<9&&L.join('')==w.join('');x++)L=sh(w);Object.assign(r,{q:`<span class=emo>${a[0]}</span>`,pre:a[2],w,L,e:`${a[0]} ${a[1].toUpperCase()}`});break}
+case'first':r.pre='З якого звука починається слово?';r.q=`<span class=emo>${a[0]}</span>`;r.big=1;r.o=sh(O(a[2],un([...FL],a[2],2)));r.e=`${a[0]} «${a[1]}» починається з букви ${a[2]}.`;break;
+case'syll':{const n=syl(a[1]);r.pre='Скільки складів у слові?';r.q=`<span class=emo>${a[0]}</span><br>${a[1]}`;r.o=[1,2,3,4].map(k=>['👏'.repeat(k)+' '+k,k==n?1:0]);r.e=`У слові «${a[1]}» ${n} ${sk(n)}.`;break}
+case'odd':r.pre='Три картинки — одна родина';r.q='Яка картинка зайва?';r.big=1;r.o=sh(O(a[1],a[0].split(' ')));r.e=`Зайве — ${a[1]}, бо решта — ${a[2]}.`;break;
+case'alpha':if(a[0]=='a'){const k=AB.indexOf(a[1]),nx=AB[k+1];r.pre='Абетка';r.q=`Яка буква йде після «${a[1]}»?`;r.o=sh(O(nx,[AB[k-1],AB[k+2],AB[k-2],AB[k+3],AB[k-3]].filter(x=>x&&x!='Ь').slice(0,2)));r.e=`Після «${a[1]}» іде «${nx}».`}else{const w=a[1].split(';'),f=w.slice().sort((x,y)=>AB.indexOf(x[0].toUpperCase())-AB.indexOf(y[0].toUpperCase()))[0];r.pre='Абетка';r.q='Яке слово стоїть першим за абеткою?';r.o=sh(w.map(x=>[x,x==f?1:0]));r.e=`Першим стоїть «${f}»: ${w.map(x=>x[0].toUpperCase()).sort((x,y)=>AB.indexOf(x)-AB.indexOf(y)).join(' → ')}.`}break;
 case'voice':if(Math.random()<.5){r.pre='Хто як подає голос?';r.q=`${a[0]} ${a[1]} …`;r.o=sh(O(a[2],ot(y=>y[2],2)))}else{const f=y=>y[0]+' '+y[1].toLowerCase();r.pre='Хто це?';r.q=`Хто ${a[2]}?`;r.o=sh(O(f(a),ot(f,2)))}r.e=`${a[1]} ${a[2]}.`;break;
-case'little':r.pre=a[0]=='b'?'Як назвати малюка?':'Як сказати лагідно?';r.q=a[1];r.o=sh(O(a[2],un(GM[g].it.filter(y=>y[0]==a[0]&&y!==a).map(y=>y[2]),a[2],2)));r.e=`${up(a[1])} → ${a[2]}.`;break;
-case'anto':{const f=Math.random()<.5,c=a[f?0:1];r.pre='Скажи навпаки';r.q=a[f?1:0];r.o=sh(O(c,un(GM[g].it.filter(y=>y!==a).flat(),c,2)));r.e=`${up(a[0])} — ${a[1]}.`;break}
+case'read':r.pre='Прочитай і дай відповідь';r.rd=1;r.q=`${a[0]}<div class=rq>${a[1]}</div>`;r.o=sh(O(a[2],a[3].split(';')));r.e=`Відповідь: ${a[2]}.`;break;
+case'anto':{const f=Math.random()<.5,c=a[f?0:1];r.pre='Скажи навпаки';r.q=a[f?1:0];r.o=sh(O(c,un(P[g].it.filter(y=>y!==a).flat(),c,2)));r.e=`${up(a[0])} — ${a[1]}.`;break}
+case'two':r.pre='Як правильно написати?';r.q='Обери правильний варіант';r.o=sh([[a[0],1],[a[1],0]]);r.e=`Пишемо: «${a[0]}».`;break;
+case'say':r.pre='Як сказати правильно?';r.q='Обери влучний варіант';r.o=sh([[a[1],1],[a[0],0]]);r.e=`Краще сказати: «${a[1]}».`;break;
+case'little':r.pre=a[0]=='b'?'Як назвати малюка?':'Як сказати лагідно?';r.q=a[1];r.o=sh(O(a[2],un(P[g].it.filter(y=>y[0]==a[0]&&y!==a).map(y=>y[2]),a[2],2)));r.e=`${up(a[1])} → ${a[2]}.`;break;
 case'root':{const f=a[2].split(';');r.pre='Яке слово — родич?';r.q=`«${a[0]}»`;r.o=sh(O(a[1],f.length>1?f:f.concat(ot(y=>y[1],1))));r.e=`«${a[1]}» — родич слова «${a[0]}».`+(a[3]?' '+a[3]:'');break}
+case'parts':r.pre='Яка це частина мови?';r.q=a[0];r.o=['i','p','d'].map(k=>[PN[k],k==a[1]?1:0]);r.e=`«${a[0]}» — ${PN[a[1]]}.`;break;
 case'voc':r.pre='Як правильно гукнути?';r.q=a[0];r.o=sh([[up(a[1])+'!',1],[up(a[0])+'!',0]]);r.e=`Гукаємо в кличному відмінку: «${up(a[1])}!»`;break;
 case'str':r.pre='Де правильний наголос?';r.q=a[0].toLowerCase();r.o=sh(O(a[0],alt(a[0],2)));r.e=`Правильно: ${a[0]}.`;break;
-case'spell':case'nspell':r.pre='Як правильно написати?';r.q='Обери правильний варіант';r.o=sh([[a[0],1],[a[1],0]]);r.e=`Пишемо: «${a[0]}».`;break;
-case'say':r.pre='Як сказати краще?';r.q='Обери влучний варіант';r.o=sh([[a[1],1],[a[0],0]]);r.e=`Краще сказати: «${a[1]}».`;break;
-case'phr':case'cry':r.pre='Що означає вислів?';r.q=a[0];r.o=sh(O(a[1],ot(y=>y[1],2)));r.e=`«${a[0]}» — ${a[1]}.`;break;
-case'dial':r.pre=a[2]=='уся Україна'?'Рідкісне слово. Що воно означає?':`Що означає слово? 📍 ${a[2]}`;r.q=`«${a[0]}»`;r.o=sh(O(a[1],ot(y=>y[1],2)));r.e=`«${a[0]}» — ${a[1]}.`;break;
+case'mean':r.pre='Що означає вислів?';r.q=a[0];r.o=sh(O(a[1],ot(y=>y[1],2)));r.e=`«${a[0]}» — ${a[1]}.`;break;
+case'dial':r.pre=`Що означає слово? 📍 ${a[2]}`;r.q=`«${a[0]}»`;r.o=sh(O(a[1],ot(y=>y[1],2)));r.e=`«${a[0]}» — ${a[1]}.`;break;
 case'slang':{const v=a[1].split(';');r.pre='Українське слово замість…';r.q=`«${a[0]}»`;r.o=sh(O(v[0],ot(y=>y[1].split(';')[0],2)));r.e=`«${a[0]}» — це ${v.join(', ')}.`;break}
-case'myth':r.pre='Правда чи міф?';r.q=a[0];r.o=[['Правда',a[1]=='0'?1:0],['Міф',a[1]=='1'?1:0]];r.e=a[2];break;
 case'fact':r.pre='Факт чи думка?';r.q=a[0];r.o=[['Факт',a[1]=='0'?1:0],['Думка',a[1]=='1'?1:0]];r.e=a[2]||(a[1]=='0'?'Це факт: його можна перевірити.':'Це думка: оцінка, з якою можна не погодитися.');break;
-case'read1':case'read2':case'read3':case'read5':r.pre='Прочитай і дай відповідь';r.rd=1;r.q=`${a[0]}<div class=rq>${a[1]}</div>`;r.o=sh(O(a[2],a[3].split(';')));r.e=`Відповідь: ${a[2]}.`;break;
+case'myth':r.pre='Правда чи міф?';r.q=a[0];r.o=[['Правда',a[1]=='0'?1:0],['Міф',a[1]=='1'?1:0]];r.e=a[2];break;
 case'nstr':{const ws=[a[0],...ot(y=>y[0],3)];r.pre='Наголос правильно позначено в слові…';r.q='Обери одне слово';r.o=sh(ws.map((w,j)=>[j?alt(w,1)[0]:w,j?0:1]));r.e=`Правильно: ${ws.join(', ')}.`;break}
-case'nlex':if(a[0]=='p'){r.pre='Яке слово пасує?';r.q=a[1];r.o=sh([[a[2],1],[a[3],0]]);r.e=a[4]}else{r.pre='Як правильно?';r.q='Обери нормативний варіант';r.o=sh([[a[2],1],[a[1],0]]);r.e=`Норма: «${a[2]}», а «${a[1]}» — невдала калька.`}break}
+case'par':r.pre='Яке слово пасує?';r.q=a[0];r.o=sh([[a[1],1],[a[2],0]]);r.e=a[3];break}
 return r}
-// ---- Без повторів: що вже траплялося класу в цій грі, не повторюється, доки не вичерпається вся база гри
-const SK='ub3s',sv=()=>{try{return JSON.parse(localStorage.getItem(SK)||'{}')}catch(x){return{}}};
-const seen=(k,g)=>(sv()[k]||{})[g]||[];
-function see(k,g,j){const s=sv(),o=s[k]=s[k]||{},a=o[g]=o[g]||[];if(!a.includes(j))a.push(j);if(a.length>=GM[g].it.length)o[g]=[];try{localStorage.setItem(SK,JSON.stringify(s))}catch(x){}}
-// Спершу завдання, яких не бачив жоден із гравців-класів, потім ті, що бачили менше класів
-function queue(ks,g){const ss=ks.map(k=>new Set(seen(k,g)));return sh(GM[g].it.map((_,j)=>j)).map(j=>[j,ss.filter(s=>s.has(j)).length]).sort((a,b)=>a[1]-b[1]).map(x=>x[0])}
-const ld=()=>{if(DEMO)return{12:{s:[185,160]},5:{s:[150,120]},22:{s:[140]},19:{s:[95]},26:{s:[90]}};try{return JSON.parse(localStorage.getItem('ub2')||'{}')}catch(x){return{}}};
-const rank=()=>Object.entries(ld()).map(([k,o])=>[k,o.s.reduce((a,b)=>a+b,0)]).sort((a,c)=>c[1]-a[1]);
-// Запис гри класу: зберігаємо 10 найкращих результатів
-function rec(k,v){if(DEMO||Date.now()>=END)return 0;const b=ld(),o=b[k]||{s:[]};o.s.push(v);o.s.sort((a,c)=>c-a);o.s=o.s.slice(0,10);b[k]=o;try{localStorage.setItem('ub2',JSON.stringify(b))}catch(x){}return 1}
+// ===================== ЗБЕРЕЖЕННЯ =====================
+// ub5p: {клас: {p: бали, t: коли востаннє зросли бали}}; ub5s: {клас: {гра: {номер завдання: отримані бали}}}
+const PK_='ub5p',SK='ub5s',js=k=>{try{return JSON.parse(localStorage.getItem(k)||'{}')}catch(x){return{}}},sj=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(x){}};
+const done_=(k,g)=>(js(SK)[k]||{})[g]||{};
+const ptsOf=k=>js(PK_)[k]||{p:0,t:0};
+const gpts=(k,g)=>Object.values(done_(k,g)).reduce((a,b)=>a+b,0);
+const closed=()=>Date.now()>=END;
+// Зараховує відповідь класу k на завдання j гри g (v — бали). Кожне завдання — лише раз.
+function award(k,g,j,v){if(closed())return;const s=js(SK),o=s[k]=s[k]||{},a=o[g]=o[g]||{};if(j in a)return;a[j]=v;sj(SK,s);if(v){const p=js(PK_),q=p[k]=p[k]||{p:0,t:0};q.p+=v;q.t=Date.now();sj(PK_,p)}}
+// Нові для всіх указаних класів завдання гри
+const fresh=(ks,g)=>sh(P[g].it.map((_,j)=>j).filter(j=>ks.every(k=>!(j in done_(k,g)))));
+// Рейтинг: більше балів — вище; за рівності вище той, хто набрав ці бали раніше
+const rank=()=>CL.map((c,k)=>{const o=ptsOf(k);return[k,o.p,o.t]}).sort((a,b)=>b[1]-a[1]||(a[1]?a[2]-b[2]:a[0]-b[0]));
 const p2=n=>String(n).padStart(2,'0');
 function cdt(){const d=END-Date.now();if(d<=0)return'Змагання завершено 🎉';const s=d/1000|0;return`До кінця змагань: ${s/86400|0} дн ${p2((s%86400)/3600|0)}:${p2((s%3600)/60|0)}:${p2(s%60)}`}
-const tbl=n=>{const e=rank().slice(0,n),m=e.length?e[0][1]||1:1;return e.length?e.map(([k,v],j)=>`<div class=br><b>${['🥇','🥈','🥉'][j]||''} ${CL[k][1]} <small>${CL[k][0]} кл.</small></b><div class=tr><i style="width:${v/m*100}%"></i></div><span>${v}</span></div>`).join(''):'<p class=sub>Поки порожньо — зіграйте першими!</p>'};
+const row=([k,v],j,m)=>`<div class=br><span class=n>${v?(['🥇','🥈','🥉'][j]||j+1):j+1}</span><b>${CL[k][1]} <small>${CL[k][0]} кл.</small></b><div class=tr><i style="width:${v/m*100}%"></i></div><span class=v>${v} <small>/ ${MAX(CL[k][0])}</small></span></div>`;
+const tbl=all=>{const e=rank(),m=Math.max(1,...e.map(x=>x[1])),l=all?e:e.filter(x=>x[1]).slice(0,5);return l.length?l.map((x,j)=>row(x,j,m)).join(''):'<p class=sub>Поки порожньо — зіграйте першими!</p>'};
 const pills=(l,key,items)=>`<div class=lab>${l}</div><div class=pills>`+items.map(([t,v])=>`<button class="pill${S[key]==v?' on':''}" onclick="S.${key}='${v}';home()">${t}</button>`).join('')+'</div>';
-// Ігри, доступні для обраного класу (або спільні для 2–3 класів у дуелі)
-function games(){const fit=x=>g=>x>=g.g[0]&&x<=g.g[1];if(S.mode=='c')return S.cs.length<2?[]:G.filter(g=>S.cs.every(k=>fit(CL[k][0])(g)));const x=S.mode=='1'?(S.cls===''?0:CL[S.cls][0]):S.gr;return x?G.filter(fit(x)):[]}
-function need(){const m=S.mode;return m=='1'&&S.cls===''?'Спочатку обери свій клас':m=='c'&&S.cs.length<2?'Оберіть 2 або 3 класи':!S.game?(m=='1'?'Обери гру':'Оберіть гру'):''}
+// Ігри, доступні в цьому режимі (для «Клас на клас» — лише спільні)
+function games(){if(S.mode=='c'){if(S.cs.length<2)return[];return GR[CL[S.cs[0]][0]].filter(g=>S.cs.every(k=>GR[CL[k][0]].includes(g)))}const x=S.mode=='1'?(S.cls===''?0:CL[S.cls][0]):S.gr;return x?GR[x]:[]}
+const keys=()=>S.mode=='1'?[+S.cls]:S.mode=='c'?S.cs:[];
+function need(){const m=S.mode;if((m=='1'||m=='c')&&closed())return'Змагання завершено';if(m=='1'&&S.cls==='')return'Спочатку обери свій клас';if(m=='c'&&S.cs.length<2)return'Оберіть 2 або 3 класи';if(!S.game)return m=='1'?'Обери гру':'Оберіть гру';if((m=='1'||m=='c')&&!fresh(keys(),S.game).length)return m=='1'?'Цю гру ви вже пройшли':'Спільних нових завдань немає';return''}
 function tg(k){const a=S.cs,j=a.indexOf(k);if(j>=0)a.splice(j,1);else if(a.length<3)a.push(k);home()}
-function stop(){RUN++;clearInterval(T);clearInterval(TQ);PZ=0;const m=$('md');if(m)m.remove()}
-function home(){stop();app.dataset.s='h';const m=S.mode,gs=games();if(!gs.some(g=>g.id==S.game))S.game=gs.length==1?gs[0].id:'';
+function stop(){RUN++;clearInterval(TQ);PZ=0;['md','kp'].forEach(id=>{const m=$(id);if(m)m.remove()})}
+const RULES=`<b>Правила змагання</b><ul>
+<li>У кожного класу 4 ігри по 25 завдань — однаково для всіх класів одного року.</li>
+<li>Правильна відповідь — <b style="display:inline;font-size:inherit">10 балів</b>. Максимум для кожного класу — <b style="display:inline;font-size:inherit">1000 балів</b>.</li>
+<li>Кожне завдання клас бачить лише раз: після відповіді воно зникає.</li>
+<li>Щоб грати за клас, введіть пароль класу.</li>
+<li>Перемагає клас із найбільшою кількістю балів на 5 листопада, 19:00. За рівності вище той, хто набрав бали раніше.</li></ul>`;
+function home(){stop();app.dataset.s='h';const m=S.mode,gs=games();if(!gs.includes(S.game))S.game='';
 const band=`<div class=lab>Вікова група</div><div class=pills>${[1,2,3].map(b=>`<button class="pill${S.band==b?' on':''}" onclick="S.band=${b};home()">${BN[b]}</button>`).join('')}</div>`;
-const cls=multi=>`<div class=tiles>${CL.map((c,k)=>[c,k]).filter(([c])=>bd(c[0])==S.band).map(([c,k])=>{const on=multi?S.cs.includes(k):S.cls===''+k;return`<button class="tile${on?' on':''}" onclick="${multi?`tg(${k})`:`S.cls='${k}';home()`}">${c[1]}<small>${c[0]} клас</small></button>`}).join('')}</div>`;
-const sub=g=>{if(m!='1')return g.s;const n=g.it.length,f=n-seen('c'+S.cls,g.id).length;return f==n?`${n} завдань, усі нові`:`нових: ${f} з ${n}`};
-let body=m=='1'?band+'<div class=lab>Твій клас</div>'+cls(0):m=='c'?`<div class=lab>Які класи змагаються? (${S.cs.length} з 3)</div>`+band+cls(1)+`<span class=note>${S.cs.length?'Обрано: '+S.cs.map(k=>CL[k][1]+', '+CL[k][0]+' кл.').join(' · ')+'. ':''}Кожен клас отримує свої бали (10 за правильну відповідь, +5 за серію, +5 найшвидшим) — і вони йдуть у таблицю.</span>`:`<div class=lab>Ваш клас</div><div class=pills>${[...Array(11)].map((_,j)=>`<button class="pill n${S.gr==j+1?' on':''}" onclick="S.gr=${j+1};home()">${j+1}</button>`).join('')}</div><span class=note>Гра для розваги: у таблицю класів не йде.</span>`;
-body+=gs.length?`<div class=lab>Гра</div><div class="tiles t3">${gs.map(g=>`<button class="tile t${S.game==g.id?' on':''}" onclick="S.game='${g.id}';home()"><i>${g.i}</i><span>${g.n}<small>${sub(g)}</small></span></button>`).join('')}</div>`:m=='c'&&S.cs.length>1?'<p class=sub>У цих класів поки немає спільної гри. Оберіть класи, ближчі за віком.</p>':'';
+const cls=multi=>`<div class=tiles>${CL.map((c,k)=>[c,k]).filter(([c])=>bd(c[0])==S.band).map(([c,k])=>{const on=multi?S.cs.includes(k):S.cls===''+k;return`<button class="tile${on?' on':''}" onclick="${multi?`tg(${k})`:`S.cls='${k}';home()`}">${c[1]}<small>${c[0]} клас · ${ptsOf(k).p} б.</small></button>`}).join('')}</div>`;
+const sub=g=>{const n=P[g].it.length;if(m=='1'){const d=Object.keys(done_(+S.cls,g)).length;return d>=n?`пройдено ✓ · ${gpts(+S.cls,g)} з ${n*PT} б.`:`${d} з ${n} завдань · ${gpts(+S.cls,g)} з ${n*PT} б.`}if(m=='c')return`спільних нових: ${fresh(S.cs,g).length}`;return P[g].s};
+let body=m=='1'?band+'<div class=lab>Твій клас</div>'+cls(0)+(S.cls!==''?`<span class=note>Клас «${CL[S.cls][1]}»: ${ptsOf(+S.cls).p} з ${MAX(CL[S.cls][0])} балів</span>`:''):m=='c'?`<div class=lab>Які класи змагаються? (${S.cs.length} з 3)</div>`+band+cls(1)+`<span class=note>${S.cs.length?'Обрано: '+S.cs.map(k=>CL[k][1]+', '+CL[k][0]+' кл.').join(' · ')+'. ':''}Кожен клас отримує 10 балів за свою правильну відповідь — і вони йдуть у таблицю.</span>`:`<div class=lab>Ваш клас</div><div class=pills>${[...Array(11)].map((_,j)=>`<button class="pill n${S.gr==j+1?' on':''}" onclick="S.gr=${j+1};home()">${j+1}</button>`).join('')}</div><span class=note>Гра для розваги: у таблицю класів не йде.</span>`;
+body+=gs.length?`<div class=lab>Гра</div><div class="tiles t2">${gs.map(g=>`<button class="tile t${S.game==g?' on':''}" onclick="S.game='${g}';home()"><i>${P[g].i}</i><span>${P[g].n}<small>${sub(g)}</small></span></button>`).join('')}</div>`:m=='c'&&S.cs.length>1?'<p class=sub>У цих класів немає спільних ігор. Оберіть класи одного року або сусідніх років.</p>':'';
 const no=need();
-app.innerHTML=`<div class=home><div class=hero><div class=logo>Мова вільних і небайдужих 🫶</div><div class="card wod" id=wod>${wodH()}</div><div class=card><div class=cd id=cdn>${cdt()}</div>${tbl(5)}<small class=note>Рахуємо 10 найкращих ігор кожного класу</small><button class=ghost onclick="classes()">Уся таблиця</button></div></div><div class="card setup">`+
+app.innerHTML=`<div class=home><div class=hero><div class=logo>Мова вільних і небайдужих 🫶</div><div class=duo><div class="card rules">${RULES}</div><div class="card wod" id=wod>${wodH()}</div></div><div class=card><div class=cd id=cdn>${cdt()}</div>${tbl(0)}<button class=ghost onclick="classes()">Уся таблиця</button></div></div><div class="card setup">`+
 pills('Як граємо?','mode',[['🏆 За клас','1'],['Двоє','2'],['Троє','3'],['Четверо','4'],['⚔️ Клас на клас','c']])+body+
 `<button class=go ${no?'disabled':''} onclick="start()">${no||'Грати'}</button></div></div>`}
 function classes(){stop();app.dataset.s='h';
-app.innerHTML=`<div class=stage><div class=top><div class="logo s">Класи проти класів</div><button class=ghost onclick="home()">Назад</button></div><div class=card style="flex:1;overflow:auto"><div class=cd id=cdn>${cdt()}</div>${tbl(12)}</div><button class=ghost style="opacity:.4;align-self:flex-end" onclick="rst()">Скинути таблицю</button></div>`}
-function rst(){if(confirm('Скинути таблицю класів і прогрес завдань?')){try{localStorage.removeItem('ub2');localStorage.removeItem(SK)}catch(x){}classes()}}
-function start(){if(need()||DEMO)return;stop();delete app.dataset.s;S.mode=='1'?solo():duel()}
-// ---- Кнопка «Завершити» з підтвердженням (поки вікно відкрите, час стоїть)
+app.innerHTML=`<div class=stage><div class=top><div class="logo s">Таблиця класів</div><button class=ghost onclick="home()">Назад</button></div><div class=card style="flex:1;overflow:auto"><div class=cd id=cdn>${cdt()}</div>${tbl(1)}<small class=note>Максимум для кожного класу — 1000 балів. За рівності балів вище клас, який набрав їх раніше.</small></div><button class=ghost style="opacity:.4;align-self:flex-end" onclick="rst()">Скинути таблицю</button></div>`}
+function rst(){if(confirm('Скинути таблицю класів і всі пройдені завдання?')&&confirm('Точно? Це не можна скасувати.')){try{localStorage.removeItem(PK_);localStorage.removeItem(SK)}catch(x){}classes()}}
+// ---- Пароль класу: гарна цифрова панель на екрані
+function pin(k,cb){const n=CL[k][0]<5?4:6;let v='',err='';const m=document.createElement('div');m.id='kp';m.className='md kp';document.body.appendChild(m);
+const r=sh=>{m.innerHTML=`<div class="card${sh?' shake':''}"><p class=big style="font-size:4.2vh">🔒 Пароль класу «${CL[k][1]}»</p><p class=sub>${n==4?'4 цифри':'6 цифр'}</p><div class=dots>${[...Array(n)].map((_,j)=>`<i class="${j<v.length?'f':''}"></i>`).join('')}</div><div class=perr>${err}</div><div class=keys>${[1,2,3,4,5,6,7,8,9].map(d=>`<button class=key data-d=${d}>${d}</button>`).join('')}<button class="key k2" data-d=x>Скасувати</button><button class=key data-d=0>0</button><button class="key k3" data-d=b>⌫</button></div></div>`};
+m.onclick=e=>{const b=e.target.closest('[data-d]');if(!b)return;const d=b.dataset.d;last=Date.now();
+if(d=='x'){m.remove();return}if(d=='b'){v=v.slice(0,-1);err='';return r()}if(v.length<n)v+=d;
+if(v.length==n){if(cyrb('vilni:'+k+':'+v,7)===CL[k][2]){m.remove();cb()}else{v='';err='Не той пароль. Спробуйте ще раз.';r(1)}}else r()};r()}
+const pins=(l,cb)=>l.length?pin(l[0],()=>pins(l.slice(1),cb)):cb();
+function start(){if(need())return;const m=S.mode;if(m=='1')pins([+S.cls],go);else if(m=='c')pins(S.cs.slice(),go);else go()}
+function go(){stop();delete app.dataset.s;S.mode=='1'?solo():duel()}
+// ---- Кнопка «Завершити» з підтвердженням
 const qbtn='<button class=ghost onclick="ask()">Завершити</button>';
-function ask(){if($('md'))return;PZ=1;const m=document.createElement('div');m.id='md';m.className='md';m.innerHTML=`<div class=card><p class=big style="font-size:5vh">Точно завершити гру?</p><p class=sub style="margin-top:1.4vh">${S.mode=='1'||S.mode=='c'?'Бали, набрані досі, збережуться.':'Покажемо, хто скільки набрав.'}</p><div class=pills style="justify-content:center;margin-top:3vh"><button class=go onclick="quit()">Так, завершити</button><button class=ghost onclick="unask()">Ні, граємо далі</button></div></div>`;document.body.appendChild(m)}
+function ask(){if($('md'))return;PZ=1;const m=document.createElement('div');m.id='md';m.className='md';m.innerHTML=`<div class=card><p class=big style="font-size:5vh">Точно завершити гру?</p><p class=sub style="margin-top:1.4vh">${S.mode=='1'||S.mode=='c'?'Бали за вже дані відповіді збережуться. Завдання без відповіді лишаться на потім.':'Покажемо, хто скільки набрав.'}</p><div class=pills style="justify-content:center;margin-top:3vh"><button class=go onclick="quit()">Так, завершити</button><button class=ghost onclick="unask()">Ні, граємо далі</button></div></div>`;document.body.appendChild(m)}
 function unask(){const m=$('md');if(m)m.remove();PZ=0}
 function quit(){unask();S.mode=='1'?endSolo():fin()}
 // ---- Спільне: картка питання, складання слова з літер
-const qh=()=>{const g=GM[cur.g];return`<div class=pre>${g.i} ${g.n}${cur.w||!cur.pre?'':' · '+cur.pre}</div><div class="q${cur.rd?' rd':cur.q.length>34?' sm':''}">${cur.q}</div>${cur.w?`<div class=clue>${cur.pre}</div>`:''}`};
+const qh=()=>{const g=P[cur.g];return`<div class=pre>${g.i} ${g.n}${cur.w||!cur.pre?'':' · '+cur.pre}</div><div class="q${cur.rd?' rd':cur.big?'':cur.q.length>34?' sm':''}">${cur.q}</div>${cur.w?`<div class=clue>${cur.pre}</div>`:''}`};
 const nb=()=>({p:0,u:[],m:0,x:0,h:-1,n:-1,fz:0});
 const bh=(p,fn)=>{const b=B[p];return`<div class=slots>${cur.w.map((c,j)=>`<span class=slot>${j<b.p?c:''}</span>`).join('')}</div><div class=lts>${cur.L.map((c,k)=>`<button class="lt${b.u[k]?' u':''}${b.h==k?' hint':''}${b.n==k?' no':''}" onclick="${fn}(${p},${k})">${c}</button>`).join('')}</div>`};
-// Повертає: 1 — правильна літера, 2 — слово готове, -1 — не та літера (після 2 спроб підсвічуємо підказку)
+// 1 — правильна літера, 2 — слово готове, -1 — не та літера (після 2 спроб підсвічуємо підказку)
 function bt(p,k){const b=B[p];if(b.u[k]||Date.now()<b.fz)return 0;b.n=-1;if(cur.L[k]==cur.w[b.p]){b.u[k]=1;b.p++;b.m=0;b.h=-1;return b.p==cur.w.length?2:1}b.m++;b.x++;b.n=k;if(b.m>=2)b.h=cur.L.findIndex((c,j)=>!b.u[j]&&c==cur.w[b.p]);return-1}
+// Бали за завдання: 10 за правильну відповідь; у «Склади слово» — 10 без помилок, 5 з помилками
+const bpts=b=>b.x?PT/2:PT;
 const OKW=['Правильно!','Так!','Чудово!','Влучно!','Саме так!'];
-function fbk(ok){const f=$('fb');f.className='fb show '+(ok?'g':'r');f.textContent=(ok?OKW[Math.random()*OKW.length|0]+' ':'Запам’ятаймо: ')+cur.e}
+function fbk(ok,extra){const f=$('fb');f.className='fb show '+(ok?'g':'r');f.textContent=(ok?OKW[Math.random()*OKW.length|0]+' ':'Запам’ятаймо: ')+cur.e+(extra||'')}
 const later=(f,ms)=>{const r=RUN;setTimeout(()=>{if(r==RUN)f()},ms)};
-// ---- Гра за свій клас (на час)
-function solo(){const gr=CL[S.cls][0];DUR=GM[S.game].t||(gr<3?90:gr<5?75:60);K='c'+S.cls;Q=queue([K],S.game);i=0;sc=0;st=0;nr=0;tm=DUR;T=setInterval(()=>{if(PZ)return;tm--;if($('tm'))$('tm').textContent='⏱ '+tm;if($('bi'))$('bi').style.width=tm/DUR*100+'%';if(tm<=0)endSolo()},1000);sq()}
-function sq(){lock=0;const j=Q[i%Q.length];see(K,S.game,j);cur=mk(S.game,GM[S.game].it[j]);opts=cur.o;B=[nb()];
-app.innerHTML=`<div class=stage><div class=top><span class=badge id=tm>⏱ ${tm}</span><div class=bar><i id=bi style="width:${tm/DUR*100}%"></i></div><span class=badge>⭐ ${sc}${st>2?' 🔥'+st:''}</span>${qbtn}</div><div class="card qc">${qh()}</div>`+
-(cur.w?`<div class=bz id=bz>${bh(0,'sb')}</div>`:`<div class=opts style="grid-template-columns:${opts.length==3?'1fr':'1fr 1fr'}">${opts.map((o,k)=>`<button class=opt onclick="ans(${k})"><i>${'АБВГ'[k]}</i>${o[0]}</button>`).join('')}</div>`)+`<div id=fb class=fb></div></div>`}
-function ans(k){if(lock||tm<=0||PZ)return;lock=1;const ok=opts[k][1];
+const optsH=(fn,p)=>opts.map((o,k)=>`<button class="opt${cur.big?' e':''}${p===undefined?'':oc(p,k)}" onclick="${fn}(${p===undefined?'':p+','}${k})">${cur.big?'':`<i>${'АБВГ'[k]}</i>`}${o[0]}</button>`).join('');
+const cols=()=>opts.length==3?(cur.big?'1fr 1fr 1fr':'1fr'):'1fr 1fr';
+// ---- Гра за свій клас: до 10 нових завдань
+function solo(){K=+S.cls;Q=fresh([K],S.game).slice(0,10);i=0;sc=0;nr=0;sq()}
+function sq(){if(i>=Q.length)return endSolo();lock=0;cur=mk(S.game,P[S.game].it[Q[i]]);opts=cur.o;B=[nb()];
+app.innerHTML=`<div class=stage><div class=top><span class=badge>${i+1} / ${Q.length}</span><div class=bar><i style="width:${i/Q.length*100}%"></i></div><span class=badge>⭐ +${sc}</span>${qbtn}</div><div class="card qc">${qh()}</div>`+
+(cur.w?`<div class=bz id=bz>${bh(0,'sb')}</div>`:`<div class=opts style="grid-template-columns:${cols()}">${optsH('ans')}</div>`)+`<div id=fb class=fb></div></div>`}
+function ans(k){if(lock||PZ)return;lock=1;const ok=opts[k][1];
 document.querySelectorAll('.opt').forEach((e,j)=>{if(opts[j][1])e.classList.add('ok');else if(j==k)e.classList.add('bad')});
-if(ok){st++;nr++;sc+=10+(st>2?5:0)}else st=0;
-fbk(ok);later(()=>{i++;if(tm>0)sq()},ok?1400:2700)}
-// Складене слово завжди дає 10 балів; серія (+5) — лише якщо без жодної хибної літери
-function sb(p,k){if(lock||tm<=0||PZ)return;const r=bt(0,k);$('bz').innerHTML=bh(0,'sb');if(r==2){lock=1;nr++;if(B[0].x)st=0;else st++;sc+=10+(st>2?5:0);fbk(1);later(()=>{i++;if(tm>0)sq()},1500)}}
-function endSolo(){stop();const k=S.cls,ok=rec(k,sc);
-const m=ok?`${CL[k][1]} (${CL[k][0]} клас) тепер на ${rank().findIndex(x=>x[0]==k)+1} місці`:'Змагання завершено, результат не записано.';
+award(K,S.game,Q[i],ok?PT:0);if(ok){nr++;sc+=PT}
+fbk(ok,ok?' +10':'');later(()=>{i++;sq()},ok?1500:2800)}
+function sb(p,k){if(lock||PZ)return;const r=bt(0,k);$('bz').innerHTML=bh(0,'sb');if(r==2){lock=1;const v=bpts(B[0]);award(K,S.game,Q[i],v);nr++;sc+=v;fbk(1,` +${v}`+(v<PT?' (з підказками)':''));later(()=>{i++;sq()},1600)}}
+function endSolo(){stop();const k=K,o=ptsOf(k),place=rank().findIndex(x=>x[0]==k)+1,left=fresh([k],S.game).length;
 const kind=['Дякуємо за гру! 🫶','Мова любить сміливих!','Кожна гра — нові слова у скарбничці!'][Math.random()*3|0];
-S.cls='';app.innerHTML=`<div class=stage style="justify-content:center"><div class="card" style="text-align:center"><p class=big style="font-size:12vh">⭐ ${sc}</p><p class=sub style="color:var(--ink);font-size:3.4vh">${kind} Правильних відповідей: ${nr}</p><p class=sub style="margin:1vh 0">${m}</p><p class=sub style="margin:0 0 3vh">Спробуйте й інші ігри — там чекають нові завдання.</p><div class=pills style="justify-content:center"><button class=go onclick="classes()">До таблиці</button><button class=ghost onclick="home()">Грати ще</button></div></div></div>`}
-// ---- Дуелі. Гравці (2–4): хто перший правильно — тому бал, у таблицю не йде.
-// Клас на клас: кожен клас відповідає сам і отримує 10 за правильну, +5 за серію з 3+, +5 найшвидшим; бали йдуть у таблицю.
-const QL=()=>cur.w?40:cur.rd?45:25;
-function duel(){CM=S.mode=='c';N=CM?S.cs.length:+S.mode;NM=CM?S.cs.map(k=>`«${CL[k][1]}»`):[...Array(N)].map((_,p)=>`Гравець ${p+1}`);SC=Array(N).fill(0);ST=Array(N).fill(0);P=queue(CM?S.cs.map(k=>'c'+k):['d'],S.game).slice(0,10);R=0;let n=5;const r=RUN;
+S.cls='';app.innerHTML=`<div class=stage style="justify-content:center"><div class="card" style="text-align:center"><p class=big style="font-size:11vh">⭐ +${sc}</p><p class=sub style="color:var(--ink);font-size:3.4vh">${kind} Правильних відповідей: ${nr}</p><p class=sub style="margin:1vh 0">${closed()?'Змагання завершено, бали не записано.':`Клас «${CL[k][1]}»: ${o.p} з ${MAX(CL[k][0])} балів · ${place} місце`}</p><p class=sub style="margin:0 0 3vh">${left?`У цій грі лишилося ще ${left} нових завдань.`:'Цю гру клас пройшов повністю! Спробуйте інші ігри.'}</p><div class=pills style="justify-content:center"><button class=go onclick="classes()">До таблиці</button><button class=ghost onclick="home()">Грати ще</button></div></div></div>`}
+// ---- Дуелі. Гравці (2–4): хто перший правильно — тому бал, у таблицю не йде, завдання не витрачаються.
+// Клас на клас: кожен клас відповідає сам, 10 балів за правильну відповідь іде в таблицю; завдання зараховуються обом класам.
+const QL=()=>cur.w?45:cur.rd?50:30;
+function duel(){CM=S.mode=='c';N=CM?S.cs.length:+S.mode;NM=CM?S.cs.map(k=>`«${CL[k][1]}»`):[...Array(N)].map((_,p)=>`Гравець ${p+1}`);SC=Array(N).fill(0);Q=(CM?fresh(S.cs,S.game):sh(P[S.game].it.map((_,j)=>j))).slice(0,10);R=0;let n=5;const r=RUN;
+const COL=['#ffd9cc','#c8f0e3','#e2d9ff','#fff0a6'];
 const t=()=>{app.innerHTML=`<div class=stage><div class=top><div class="logo s">Станьте біля своїх екранів!</div></div><div class=pn style="grid-template-columns:repeat(${N==4?2:N},1fr)">${SC.map((s,p)=>`<div class=pl style="background:${COL[p]};justify-content:center;align-items:center"><div class=pt>${NM[p]}</div><p class=big style="font-size:18vh">${n>0?n:'Старт!'}</p></div>`).join('')}</div></div>`};
 t();const cd=setInterval(()=>{if(r!=RUN)return clearInterval(cd);n--;if(n<0){clearInterval(cd);dq()}else t()},1000)}
-function dq(){clearInterval(TQ);if(R>=P.length)return fin();(CM?S.cs.map(k=>'c'+k):['d']).forEach(k=>see(k,S.game,P[R]));cur=mk(S.game,GM[S.game].it[P[R]]);opts=cur.o;LK=Array(N).fill(0);A=Array(N).fill(0);PK=Array(N).fill(-1);FS=-1;B=[...Array(N)].map(nb);done=0;fbT='';qt=QL();
-if(CM)TQ=setInterval(()=>{if(PZ||done)return;qt--;const e=$('qt');if(e)e.textContent='⏱ '+qt;if(qt<=0){A=A.map((x,p)=>x||(ST[p]=0,-1));reveal()}},1000);draw()}
-function draw(){app.innerHTML=`<div class="stage du"><div class=top><span class=badge>${R+1} / ${P.length}</span>${CM?`<span class=badge id=qt>⏱ ${qt}</span>`:''}<div class=bar><i style="width:${R/P.length*100}%;transition:none"></i></div>${qbtn}</div><div class="card qc" style="min-height:16vh">${qh()}</div><div class=pn style="grid-template-columns:repeat(${N==4?2:N},1fr)">`+
-SC.map((s,p)=>`<div class=pl style="background:${COL[p]};${!CM&&LK[p]?'opacity:.35':''}"><div class=pt><span>${NM[p]}</span><span>${CM&&A[p]==1?'✅ ':''}⭐ ${s}</span></div>${cur.w?`<div class=bz>${bh(p,'dbt')}</div>`:opts.map((o,k)=>`<button class="opt${oc(p,k)}" onclick="da(${p},${k})"><i>${'АБВГ'[k]}</i>${o[0]}</button>`).join('')}</div>`).join('')+
+function dq(){clearInterval(TQ);if(R>=Q.length)return fin();cur=mk(S.game,P[S.game].it[Q[R]]);opts=cur.o;LK=Array(N).fill(0);A=Array(N).fill(0);PK=Array(N).fill(-1);B=[...Array(N)].map(nb);done=0;fbT='';qt=QL();
+if(CM)TQ=setInterval(()=>{if(PZ||done)return;qt--;const e=$('qt');if(e)e.textContent='⏱ '+qt;if(qt<=0){A.forEach((x,p)=>{if(!x){A[p]=-1;award(S.cs[p],S.game,Q[R],0)}});reveal()}},1000);draw()}
+const COLD=['#ffd9cc','#c8f0e3','#e2d9ff','#fff0a6'];
+function draw(){app.innerHTML=`<div class="stage du"><div class=top><span class=badge>${R+1} / ${Q.length}</span>${CM?`<span class=badge id=qt>⏱ ${qt}</span>`:''}<div class=bar><i style="width:${R/Q.length*100}%"></i></div>${qbtn}</div><div class="card qc" style="min-height:16vh">${qh()}</div><div class=pn style="grid-template-columns:repeat(${N==4?2:N},1fr)">`+
+SC.map((s,p)=>`<div class=pl style="background:${COLD[p]};${!CM&&LK[p]?'opacity:.35':''}"><div class=pt><span>${NM[p]}</span><span>${CM&&A[p]==1?'✅ ':''}⭐ ${s}</span></div>${cur.w?`<div class=bz>${bh(p,'dbt')}</div>`:`<div class=opts style="grid-template-columns:${cur.big?'1fr 1fr':'1fr'};gap:1vh">${optsH('da',p)}</div>`}</div>`).join('')+
 `</div><div class="fb show ${fbT?'g':''}" style="${fbT?'':'visibility:hidden'}">${fbT}</div></div>`}
-// Підсвітка варіантів у панелі: свій вибір одразу, правильна відповідь — після завершення питання
 const oc=(p,k)=>{if(!done&&PK[p]<0)return'';if(opts[k][1]&&(done||PK[p]==k))return' ok';return PK[p]==k?' bad':''};
 function nx(){later(()=>{R++;dq()},2600)}
-function gain(p,clean){A[p]=1;ST[p]=clean?ST[p]+1:0;SC[p]+=10+(ST[p]>2?5:0)+(FS<0?5:0);if(FS<0)FS=p}
-function reveal(){done=1;clearInterval(TQ);fbT=(FS>=0?`⚡ Найшвидші — ${NM[FS]}. `:'Цього разу ніхто. ')+cur.e;draw();nx()}
+function reveal(){done=1;clearInterval(TQ);fbT=cur.e;draw();nx()}
 function da(p,k){if(done||PZ)return;
-if(CM){if(A[p])return;PK[p]=k;if(opts[k][1])gain(p,1);else{A[p]=-1;ST[p]=0}A.every(x=>x)?reveal():draw();return}
+if(CM){if(A[p])return;PK[p]=k;const ok=opts[k][1];A[p]=ok?1:-1;if(ok)SC[p]+=PT;award(S.cs[p],S.game,Q[R],ok?PT:0);A.every(x=>x)?reveal():draw();return}
 if(LK[p])return;PK[p]=k;
 if(opts[k][1]){SC[p]++;done=1;fbT=`+1 бал: ${NM[p]}! ${cur.e}`;draw();nx()}
 else{LK[p]=1;if(LK.every(x=>x)){done=1;fbT='Цього разу ніхто. '+cur.e;draw();nx()}else draw()}}
-// Складання слова в дуелі: хибна літера лише ненадовго «заморожує» панель, без штрафу
+// Складання слова в дуелі: хибна літера лише ненадовго «заморожує» панель
 function dbt(p,k){if(done||PZ||(CM&&A[p]))return;const r=bt(p,k);if(r==-1)B[p].fz=Date.now()+700;
-if(r==2){if(CM){gain(p,!B[p].x);A.every(x=>x)?reveal():draw()}else{SC[p]++;done=1;fbT=`+1 бал: ${NM[p]}! ${cur.e}`;draw();nx()}}else if(r)draw()}
+if(r==2){if(CM){const v=bpts(B[p]);A[p]=1;SC[p]+=v;award(S.cs[p],S.game,Q[R],v);A.every(x=>x)?reveal():draw()}else{SC[p]++;done=1;fbT=`+1 бал: ${NM[p]}! ${cur.e}`;draw();nx()}}else if(r)draw()}
 function fin(){const cm=CM;stop();const m=Math.max(...SC),w=SC.map((s,p)=>s==m?p:-1).filter(p=>p>=0);app.dataset.s='h';
-const saved=cm?S.cs.map((k,p)=>rec(k,SC[p])).some(Boolean):0;
-app.innerHTML=`<div class=stage style="justify-content:center"><div class=card style="text-align:center"><p class=big>${w.length>1?'Нічия! '+w.map(p=>NM[p]).join(' і '):'Перемагає '+NM[w[0]]+'! 🎉'}</p><p class=sub style="margin:2vh 0 1vh">${SC.map((s,p)=>`${NM[p]}: ${s}`).join('  ·  ')}</p><p class=sub style="margin:0 0 3vh">${cm?(saved?'Бали обох класів записано в таблицю. ':'Змагання завершено, бали не записано. '):''}Дякуємо всім за гру! 🫶</p><div class=pills style="justify-content:center">${cm?'<button class=go onclick="classes()">До таблиці</button>':''}<button class=${cm?'ghost':'go'} onclick="home()">Грати ще</button></div></div></div>`}
+app.innerHTML=`<div class=stage style="justify-content:center"><div class=card style="text-align:center"><p class=big>${w.length>1?'Нічия! '+w.map(p=>NM[p]).join(' і '):'Перемагає '+NM[w[0]]+'! 🎉'}</p><p class=sub style="margin:2vh 0 1vh">${SC.map((s,p)=>`${NM[p]}: +${s}`).join('  ·  ')}</p><p class=sub style="margin:0 0 3vh">${cm?(closed()?'Змагання завершено, бали не записано. ':'Бали кожного класу записано в таблицю. '):''}Дякуємо всім за гру! 🫶</p><div class=pills style="justify-content:center">${cm?'<button class=go onclick="classes()">До таблиці</button>':''}<button class=${cm?'ghost':'go'} onclick="home()">Грати ще</button></div></div></div>`}
 document.addEventListener('pointerdown',()=>last=Date.now());
-setInterval(()=>{const c=$('cdn');if(c)c.textContent=cdt();const w=$('wod');if(w){const h=wodH();if(w.innerHTML!=h)w.innerHTML=h}if(!DEMO&&Date.now()-last>45000&&app.dataset.s!='h'){S.cls='';S.cs=[];home()}},1000);
+setInterval(()=>{const c=$('cdn');if(c)c.textContent=cdt();const w=$('wod');if(w){const h=wodH();if(w.innerHTML!=h)w.innerHTML=h}if(Date.now()-last>45000&&(app.dataset.s!='h'||$('kp'))){S.cls='';S.cs=[];home()}},1000);
 home();
 </script></body></html>
